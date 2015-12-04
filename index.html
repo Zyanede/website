@@ -80,6 +80,24 @@
       <div class="detail-item" ng-repeat="item in workCur.detailMedia" ng-switch="" on="item.type">
         <div ng-switch-when="vimeo" class="video-container item-media loading-ani" item-index="{[$index]}"><iframe ng-src="{[item.src]}" id="foo" vimeo-embed="item" vvimeo-embed-src="item.src" frameborder="0" width="1280" height="720" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="vimeo"></iframe></div><div ng-switch-when="youtube" class="video-container youtube item-media loading-ani" youtube-embed="item"><div id="youtube-player"></div></div><div class="item-img-outer item-media loading-ani lead-media" ng-switch-when="image"><img class="item-img" ng-src="{[item.src]}" alt="" src=""></div><video ng-switch-when="video" jf-video="item" jf-video-id="'video-work-' + $index" id="video-id-fpo" class="item-video item-media video-js vjs-default-skin vjs-jf-skin"></video></div></div><ul class="detail-links" ng-show="workCur.projectLinksArr.length > 0"><li ng-repeat="item in workCur.projectLinksArr"><a href="{[item.href]}" class="btn btn-default btn-sm" target="_blank" angular-bind-html="item.label"></a></li></ul><section class="detail-desc-wrap"><div class="detail-desc"><div class="detail-post-meta ng-cloak" ng-show="workCur.read_time || workCur.timestamp"><span class="detail-read-time ng-cloak" ng-show="workCur.read_time"><i class="fa fa-bookmark"></i> {[workCur.read_time]} min read</span> <span class="detail-timestamp ng-cloak" ng-show="workCur.timestamp"><i class="fa fa-calendar"></i> <span><time pubdate="{[workCur.timestamp]}">{[workCur.timestamp | amDateFormat:'YYYY MMMM Do']}</time></span></span></div><div><div class="description" angular-bind-html="workCur.descProcessed"></div></div><div class="press" ng-show="workCur.pressArr"><h3><i class="icon-megaphone icon"></i>Press</h3><ul><li ng-repeat="item in workCur.pressArr"><em>{[item.source]}, {[item.date]}</em><div class="indent"><a ng-href="{[item.url]}" target="_blank" href="">{[item.title]}</a></div></li></ul></div><div class="tech"><div class="tech-icons logo-list" ng-show="workCur.techProcessedArr.length > 0"><a ng-repeat="item in workCur.techProcessedArr" href="" ng-href="{[item.url]}" target="_blank"><span class="sprite tech-{[item.id]}" util-hover="pulse animated"></span></a></div></div><div class="detail-sub-info" ng-show="workCur.teamProcessedArr"><div class="team"><h4 class="title"><i class="icon-user icon"></i> Humans</h4><ul class="list"><li ng-repeat="item in workCur.teamProcessedArr"><em><span angular-bind-html="item.role" class="role"></span></em><br><div angular-bind-html="item.humans" class="indent"></div></li></ul></div></div></div></section></article></div><div ng-show="state == STATE_DETAIL" class="ng-cloak"><div class="work-btm"><div class="work-nav-btm"><div class="btn-group work-nav-group"><a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(-1)"><i class="fa fa-arrow-left"></i></a><a href="" class="btn btn-sm btn-primary" ng-click="utils.scrollAnimateTo('#work')"><i class="fa fa-arrow-up"></i></a><a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(1)"><i class="fa fa-arrow-right"></i></a></div></div></div><hr></div><div class="work-thumbs"><div class="work-ttl"><h3 class="anchor title">Work</h3></div><div class="work-thumb-container">
         <div class="work-thumb-list small-block-grid-2 large-block-grid-4">
+
+          <div class="work-thumb-item">
+            <a href="#!/work/firefall" util-change-path="/work/firefall" class="item-link">
+              <div class="item-img-outer loading-ani">
+                <div class="item-img-inner">
+                  <img src="./assets/images/util/firefall-thumb.png" alt="Red 5 Studios > Firefall" src="" class="item-img">
+                </div>
+              </div>
+              <div class="item-title-outer">
+                <div class="item-title">
+                  <div class="item-title-txt-outer">
+                    <div class="item-title-txt">Firefall
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
           <div class="work-thumb-item">
             <a href="#!/work/kaneva" util-change-path="/work/kaneva" class="item-link">
               <div class="item-img-outer loading-ani">
@@ -131,24 +149,6 @@
               </div>
             </a>
           </div>
-          <div class="work-thumb-item">
-            <a href="#!/work/greensburg-game" util-change-path="/work/greensburg-game" class="item-link">
-              <div class="item-img-outer loading-ani">
-                <div class="item-img-inner">
-                  <img src="./assets/images/util/greensburg_thumb.png" alt="Capstone Project › Greensburg Game" src="" class="item-img">
-                </div>
-              </div>
-              <div class="item-title-outer">
-                <div class="item-title">
-                  <div class="item-title-txt-outer">
-                    <div class="item-title-txt">Greensburg Game
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-
         </div>
       </div>
     </div></article><section role="about" class="container"><hr class="accent"><a id="about" class="anchor"></a>
@@ -156,27 +156,33 @@
     <h3 class="header">About</h3>
     <div class="content">
       <h4 class="subheader"><i class="fa fa-female"></i> Welcome!</h4>
-      <div class="subcontent"><p>I am a Software Engineer and Designer passionate about making fun games. I am also a Gameplay Engineer for the virtual world MMOG Kaneva as well as a highly involved member of my local game development community.</p><p>Prior to joining Kaneva, I acquired my passion for game development through my former role of Vice President for Georgia Southern University's Aurora Game Development Club.</p></div>
+      <div class="subcontent"><p>I am a UI Programmer for the game Firefall at Red 5 Studios and the Content Coordinator and Design Track Lead for the Southern Interactive Entertainment and Games Expo (SIEGE).</p><p>Prior to joining Red 5 Studios, I acquired my passion for game development through my former role of Vice President for Georgia Southern University's Aurora Game Development Club.</p></div>
       <h4 class="subheader"><i class="fa fa-key"></i> Experience</h4>
       <div class="subcontent"><p>
+      <strong>UI Programmer</strong><br>
+      <i>Red 5 Studios</i><br>
+      July 2015-Present<br><ul>
+      <li>Launched and supported the Chinese-localized release of <i>Firefall</i>, a massively-multiplayer open-world shooter for the PC platform.</li><br>
+      <li>Implemented new Lua-based UI features, such as PvP HUD and Tinkering System overhaul.</li>
+      <li>Improved C++-based widget functionality, resolved UI aspect ratio responsiveness and performance, and refactored PvP Libraries to increase UI programmer efficiency.</li></ul><br><br>
       <strong>Software Engineer</strong><br>
       <i>Kaneva, LLC</i><br>
-      July 2014-Present<br><ul>
-      <li><i>Game Programming:</i> Part of the team responsible for scripting a Lua-based game development environment built on top of Kaneva's core C++ platform engine. Projects include a quest system, vendor system, trap system, and environment system containing weather and day / night cycles.</li><br>
-      <li><i>Design:</i> Design of game features alongside the art team and producers.</li></ul><br><br>
+      July 2014-July 2015<br><ul>
+      <li>Improved environment sytem allowing users to adjust lighting and fog settings; including customizable day/night cycles.</li><br>
+      <li>Developed Lua-based quest and vendor systems for use by players to build out their virtual worlds' game content; including scheduled crafting cycles, customizable quest trees, and meta currency trading.</li></ul><br><br>
       <strong>Mobile Developer</strong><br>
       <i>Georgia Southern University</i><br>
       2013-2014<br><ul>
-      <li><i>Android Programming:</i> Sole developer for the enterprise mobile application <i><a href="https://play.google.com/store/apps/details?id=edu.georgiasouthern.georgiahistoricalmarkers&hl=en">Georgia Historical Markers</a></i> using jQuery Mobile and native Java. Launched to the Google Play Store.</li><br>
-      <li><i>Web Programming:</i> Part of the team responsible for redesigning the student facing university portal, <i>my.georgiasouthern.edu</i>.</li></ul></p></div>
-      <h4 class="subheader"><i class="fa fa-heart"></i> Interests</h4>
-      <div class="subcontent"><p>In my spare time, I am an avid artist and musician.</p><p>I enjoy participating in game jams, developing for experimental technologies, drinking coffee, learning useless trivia, and watching my cat.</p></div>
+      <li>Designed, developed, and launched <i><a href="https://play.google.com/store/apps/details?id=edu.georgiasouthern.georgiahistoricalmarkers&hl=en">Georgia Historical Markers</a></i>, an enterprise mobile application initiative of the Governor's Office of the State of Georgia, using jQuery Mobile and native Java on the Google Play Store.</li><br>
+      <li>Responsible for integrating coursework management tools into the redesigned student facing unviersity portal, <i>my.georgiasouthern.edu</i>, allowing students to quickly view pertinent information.</li></ul></p></div>
     </div>
     <div class="content">
       <h4 class="subheader"><i class="fa fa-shield"></i> Education</h4>
       <div class="subcontent"><p><strong>Georgia Southern University</strong><br><i>BS, Computer Science</i><br><i>Major GPA 3.85; Upsilon Pi Epsilon and Dean's List Recipient</i><br>2011-2014<br><br><strong>Gainesville State College</strong><br><i>AA, Art</i><br>2009-2010</p></div>
       <h4 class="subheader"><i class="fa fa-leaf"></i> Volunteer</h4>
       <div class="subcontent"><p><strong>Content Coordinator</strong><br><i>Southern Interactive Entertainment Games Expo (SIEGE)</i><br>October 2014-Present<br><br><strong>Design Track Lead</strong><br><i>Southern Interactive Entertainment Games Expo (SIEGE)</i><br>April 2014-Present<br><br><strong>Board Member</strong><br><i>Advancement of Women in Gaming</i><br>December 2014-Present<br><br><strong>Vice President</strong><br><i>Aurora Game Development Club @ Georgia Southern University</i><br>2013-2014</p></div>
+      <h4 class="subheader"><i class="fa fa-heart"></i> Interests</h4>
+      <div class="subcontent"><p>In my spare time, I am an avid artist and musician.</p><p>I enjoy participating in game jams, developing for experimental technologies, drinking coffee, learning useless trivia, and watching my cat.</p></div>
     </div>
     </div>
     <div class="content-section">
@@ -185,11 +191,11 @@
         <p>Provided in order of proficiency.</p>
         <div class="logo-list">
           <a href="http://www.lua.org/" target="_blank" util-hover="pulse animated" alt="Lua"><span class="sprite brand-fpo-0 js-hover-target"></span></a> 
+          <a href="http://www.cplusplus.com/" target="_blank" util-hover="pulse animated" alt="C++"><span class="sprite brand-fpo-3 js-hover-target"></span></a>
           <a href="http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29" target="_blank" util-hover="pulse animated" alt="C#"><span class="sprite brand-fpo-4 js-hover-target"></span></a> 
           <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank" util-hover="pulse animated" alt="JavaScript"><span class="sprite brand-fpo-5 js-hover-target"></span></a> 
           <a href="https://www.java.com/en/" target="_blank" util-hover="pulse animated" alt="Java"><span class="sprite brand-fpo-2 js-hover-target"></span></a> 
           <a href="http://http://en.wikipedia.org/wiki/HTML5" target="_blank" util-hover="pulse animated" alt="HTML 5"><span class="sprite brand-fpo-9 js-hover-target"></span></a> 
-          <a href="http://www.cplusplus.com/" target="_blank" util-hover="pulse animated" alt="C++"><span class="sprite brand-fpo-3 js-hover-target"></span></a>
         </div><hr>
         <h4><i class="fa fa-cogs"></i> Software</h4>
         <p>Provided in order of proficiency.</p>
@@ -214,6 +220,19 @@
 
     ,"work": {
       "projects":[
+        {"id":"firefall","thumbImage":"./assets/images/util/greensburg_logo.png","thumbIcon":"./assets/images/util/greensburg_logo.png","client":"Brainiac Studios","title":"Greensburg Game","date":"2014","timestamp":"5.5.2014","desc":[
+          "An in browser 3D learning game suite meant to teach 3rd grade children entrepreneurial skills. The suite includes the in browser game with mini games, student and teacher facing logins, classroom creation, and statistics tracking.","\n### About\n","Built for our client Brainiac Studios during our senior capstone class during the Spring of 2014, this project utilized a complete development process including: schedule, PERT diagram, work breakdown schedule, software cost estimations, and user testing.", "\n### Contributions", "The team as a whole contrubited to the design process and prototyping.  I spent the majority of development managing teammates as well as programming the mini games' mechanics.", "<div class='inset-image-full'>","<img src='./assets/images/util/greensburg_browser_game.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_browser_statistics.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_browser_welcome.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_browser_classroom.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_main.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_paperroute.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_carwash_intro.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_carwash.png' alt='Screenshot' >","</div>"]
+          ,"techArr":[
+            "php","git","travis","nodejs","jenkins","selenium"] 
+          ,"detailMedia":[
+              {"type":"image","src":"./assets/images/util/greensburg_testing.png"}]
+          ,"teamArr":[
+            [["Project Lead / Game Engineer"],["Ashleigh Amrine"]],
+            [["Web Engineer"],["Erick Pezoa"]],
+            [["QA / Database Engineer"],["Marcques Stephens"]],
+            [["Backend Engineer / Game Engineer"],["Davon Williams"]]
+          ]
+        },
         {"id":"kaneva","thumbImage":"http://img.informer.com/icons/png/48/3759/3759495.png","thumbIcon":"http://img.informer.com/icons/png/48/3759/3759495.png","client":"Kaneva, LLC","title":"Kaneva","date":"2013","desc":[
           "<br>","<br>","### About\n","The Virtual World of Kaneva gives players the ability to explore and create a range of virtual worlds containing social and MMO style game systems. Driven on user-generated content, the virtual MMOG Kaneva platform has the potential for building massive worlds with fully scripted game environments.\n","Currently, I am a software engineer on the team responsible for building the entire game tools system - from collaboration on design, to building the menus from the artist's compositions, to programming the functionality scripted in Lua on top of the Kaneva platform built in C++.\n","<a href='http://kaneva.com'>", "Visit Kaneva", "</a>", "\n### Contributions", "So far, I have contributed to many menu and game systems including:\n","<ul>","<li>","<b>","Vendors:","</b>"," NPC Trading system including the option for timed trade processing.","</li>","<li>","<b>","Dynamic Environment System:","</b>"," Day/Night lighting cycle, rolling fog system, and color picker menu.","</li>","<li>","<b>","Quest System and Compass:","</b>"," Loot driven quests with NPC quest givers, active quest zone editor, and automatic quest tracking by the quest compass.","</li>","<li>","<b>","Trap System:","</b>"," Collision based traps using a level based damage system.","</li>","<li>","<b>","Player Trading:", "</b>"," Giving players the ability to trade kaneva-wide currency with other players.","</li>","<li>","<b>","Gembox Menu:","</b>"," Slot-machine style menu shown upon opening a Gembox to roll for a meta currency gem.","</li>","<li>","<b>","And many more:","</b>"," Locked Loot Containers, Player Building Zones, Donation Box, Weapon Firing Prototyping, Credit Conversion Menu, bug fixes, tweaks, and optimizations...","</li>","</ul>",
           "\n### Vendors","",
@@ -247,19 +266,6 @@
           ,"teamArr":[
             [["Programmers"],["Davon Williams","Dante Williams","Mitchell Gordon"]],
             [["Programmers / Artists"],["Ashleigh Amrine","Adrian Kappel"]]
-          ]
-        },
-        {"id":"greensburg-game","thumbImage":"./assets/images/util/greensburg_logo.png","thumbIcon":"./assets/images/util/greensburg_logo.png","client":"Brainiac Studios","title":"Greensburg Game","date":"2014","timestamp":"5.5.2014","desc":[
-          "An in browser 3D learning game suite meant to teach 3rd grade children entrepreneurial skills. The suite includes the in browser game with mini games, student and teacher facing logins, classroom creation, and statistics tracking.","\n### About\n","Built for our client Brainiac Studios during our senior capstone class during the Spring of 2014, this project utilized a complete development process including: schedule, PERT diagram, work breakdown schedule, software cost estimations, and user testing.", "\n### Contributions", "The team as a whole contrubited to the design process and prototyping.  I spent the majority of development managing teammates as well as programming the mini games' mechanics.", "<div class='inset-image-full'>","<img src='./assets/images/util/greensburg_browser_game.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_browser_statistics.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_browser_welcome.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_browser_classroom.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_main.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_paperroute.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_carwash_intro.png' alt='Screenshot' >","<img src='./assets/images/util/greensburg_carwash.png' alt='Screenshot' >","</div>"]
-          ,"techArr":[
-            "php","git","travis","nodejs","jenkins","selenium"] 
-          ,"detailMedia":[
-              {"type":"image","src":"./assets/images/util/greensburg_testing.png"}]
-          ,"teamArr":[
-            [["Project Lead / Game Engineer"],["Ashleigh Amrine"]],
-            [["Web Engineer"],["Erick Pezoa"]],
-            [["QA / Database Engineer"],["Marcques Stephens"]],
-            [["Backend Engineer / Game Engineer"],["Davon Williams"]]
           ]
         }
       ]
