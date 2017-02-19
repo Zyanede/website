@@ -41,26 +41,32 @@
         margin: 0 0 2vh 0;
         color: white;
         font-size: 2vh;
+        height: 100vh;
         font-family: "Times New Roman", Times, serif;
     }
     
     .top {
-        height: 100vh;
         background: url("https://www.savannahstate.edu/academic-affairs/images/thailand_pic.jpg") no-repeat;
         background-size: cover;
         background-position: center;
-        background-attachment: local;
+    }
+    
+    .fixed-background {
+        background-attachment: fixed;
     }
     
     .mid {}
     
     .bottom {}
     
-    .header {
+    .center-column {
         flex-direction: column;
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    
+    .header {
         height: 70%;
         color: white;
         font-size: 20vh;
@@ -92,13 +98,30 @@
         justify-content: center;
     }
     
-    .locations .icon {
+    .icon {
         display: block;
         height: 20vh;
         width: 20vh;
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 50%;
+    }
+    
+    .icon-large {
+        display: block;
+        height: 40vh;
+        width: 40vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+    }
+    
+    .strip {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .locations .icon {
         margin: 5%;
         background-color: 0.5;
         animation: toInactive .2s ease-out both;
@@ -126,31 +149,39 @@
         animation: toActive .2s ease-out both;
     }
     
-    .locations .icon.bangkok {
+    .bangkok {
         background-image: url("http://www.happytrips.com/photo/52040579/Eclectic-Bangkok.jpg");
         background-position: left;
+        background-size: cover;
     }
     
     .locations .icon.bangkok:after {
         content: 'Bangkok';
     }
     
-    .locations .icon.chiang-mai {
+    .chiang-mai {
         background-image: url("http://static.asiawebdirect.com/m/bangkok/portals/chiangmai-bangkok-com/homepage/attractions/top-ten/pagePropertiesImage/Doi-Inthanon-in-Chiang-Mai.jpg");
         background-position: left;
+        background-size: cover;
     }
     
     .locations .icon.chiang-mai:after {
         content: 'Chiang Mai';
     }
     
-    .locations .icon.krabi {
+    .krabi {
         background-image: url("https://homeiswhereyourbagis.com/wp-content/uploads/2016/03/Krabi-Island-Hopping-Koh-Poda.jpg");
         background-position: center;
+        background-size: cover;
     }
     
     .locations .icon.krabi:after {
         content: 'Krabi';
+    }
+    
+    .mid .section {
+        flex-direction: row;
+        display: flex;
     }
     
     body {
@@ -176,30 +207,33 @@
 </head>
 
 <body>
-    <div class="top">
-        <div class="section header">
+    <div class="top section fixed-background">
+        <div class="header center-column">
             Thailand
             <div class="sub">Ashleigh & Richard's trip around the world.</div>
         </div>
-        <div id="locations" class="section locations">
+        <div id="locations" class="locations">
             <a class="icon bangkok" href="#bangkok"></a>
             <a class="icon chiang-mai" href="#chiang_mai"></a>
             <a class="icon krabi" href="#krabi"></a>
         </div>
     </div>
     <div class="mid">
-        <div id="bangkok" class="section bangkok">
+        <div class="section" height="650px">
+            <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1EaM9PWXTnzioQ86nKfd5qx0zFE4MWp2Y9ON-d1zpk6M&font=Default&lang=en&initial_zoom=1' width='100%' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+        </div>
+        <div id="bangkok" class="section">
+            <div class="strip bangkok"></div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
         </div>
-        <div id="chiang_mai" class="section chiang-mai">
+        <div id="chiang_mai" class="section">
+            <div class="strip chiang-mai"></div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
         </div>
-        <div id="krabi" class="section krabi">
+        <div id="krabi" class="section">
+            <div class="strip krabi"></div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
         </div>
-    </div>
-    <div class="section">
-        <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1EaM9PWXTnzioQ86nKfd5qx0zFE4MWp2Y9ON-d1zpk6M&font=Default&lang=en&initial_zoom=1&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
     </div>
 </body>
 
