@@ -65,7 +65,7 @@
         justify-content: center;
     }
     
-    .header {
+    .top .header {
         height: 70%;
         color: white;
         font-size: 15vw;
@@ -77,12 +77,20 @@
         font-family: Arial, Helvetica, sans-serif;
     }
     
-    .header .sub {
+    .top .header .sub {
         color: white;
         font-size: 3vw;
         text-shadow: 1px 1px rgba(10, 10, 10, .55);
         font-family: "Times New Roman", Times, serif;
         text-transform: capitalize;
+    }
+    
+    .mid .header {
+        float: left;
+        color: white;
+        font-size: 3vw;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
     }
     
     .locations {
@@ -153,7 +161,7 @@
     }
     
     .bangkok {
-        background-image: url("http://www.happytrips.com/photo/52040579/Eclectic-Bangkok.jpg");
+        background-image: url("https://pix6.agoda.net/city/9395/9395-7x3.jpg");
         background-position: left;
         background-size: cover;
     }
@@ -182,9 +190,10 @@
         content: 'Krabi';
     }
     
-    .mid .section {
-        flex-direction: row;
+    .sub-section {
         display: flex;
+        flex-flow: column;
+        margin: 5vh;
     }
     
     body {
@@ -225,19 +234,52 @@
         <div class="section" height="650px">
             <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1EaM9PWXTnzioQ86nKfd5qx0zFE4MWp2Y9ON-d1zpk6M&font=Default&lang=en&timenav_position=top&initial_zoom=1' width='100%' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
         </div>
-        <div id="bangkok" class="section bangkok">
-            <div class="darker">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+        <div id="bangkok" class="bangkok fixed-background">
+            <div class="section center-column darker">
+                <div class="sub-section">
+                    <div class="header">Stay</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                </div>
+                <div class="sub-section">
+                    <div class="header">Explore</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                </div>
+                <div class="sub-section">
+                    <div class="header">Experience</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                </div>
             </div>
         </div>
-        <div id="chiang_mai" class="section chiang-mai">
-            <div class="darker">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+        <div id="chiang_mai" class="chiang-mai fixed-background">
+            <div class="section center-column darker">
+                <div class="sub-section">
+                    <div class="header">Stay</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                </div>
+                <div class="sub-section">
+                    <div class="header">Explore</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                </div>
+                <div class="sub-section">
+                    <div class="header">Experience</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                </div>
             </div>
         </div>
-        <div id="krabi" class="section krabi">
-            <div class="darker">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+        <div id="krabi" class="krabi fixed-background">
+            <div class="section center-column darker">
+                <div class="sub-section">
+                    <div class="header">Stay</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                </div>
+                <div class="sub-section">
+                    <div class="header">Explore</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                </div>
+                <div class="sub-section">
+                    <div class="header">Experience</div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                </div>
             </div>
         </div>
     </div>
