@@ -32,7 +32,7 @@
     @keyframes fadeIn {
         to {
             opacity: 1;
-            bottom: 100%;
+            bottom: 105%;
         }
     }
     
@@ -77,7 +77,7 @@
     }
     
     .top .header {
-        height: 70%;
+        height: 100%;
         color: white;
         font-size: 15vh;
         text-shadow: 2px 2px rgba(10, 10, 10, .55);
@@ -105,14 +105,10 @@
     }
     
     .locations {
-        height: 30%;
-        color: white;
-    }
-    
-    .locations {
         width: 100%;
+        color: white;
         display: flex;
-        align-items: center;
+        align-items: top;
         justify-content: center;
     }
     
@@ -152,16 +148,16 @@
     }
     
     .locations .icon {
-        margin: 5%;
+        margin: 1.5vw;
         background-color: 0.5;
         animation: toInactive .2s ease-out both;
     }
     
     .locations .icon:after {
         position: absolute;
-        bottom: 70%;
-        left: 0;
-        width: 100%;
+        bottom: 100%;
+        left: -50%;
+        width: 200%;
         height: 5vh;
         content: '';
         color: white;
@@ -233,6 +229,16 @@
         height: 100vh;
     }
     
+    .nav-bar {
+        position: fixed;
+        bottom: 0;
+    }
+    
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    
     body {
         text-align: center;
         background-color: #333;
@@ -254,19 +260,37 @@
             event.preventDefault();
         });
     });
+
+    var origSize = 10;
+
+    window.addEventListener('load', function() {
+        var locations = document.getElementById('locations'),
+            docHeight = document.documentElement.offsetHeight,
+            innerHeight = window.innerHeight;
+        window.addEventListener('scroll', function() {
+            // normalize scroll position as percentage
+            console.log('height: ' + innerHeight);
+            var scrolled = window.scrollY / innerHeight,
+                transformValue = (origSize * Math.max(0.4, (1 - scrolled))) + 'vw';
+
+            $('.locations .icon').height(transformValue).width(transformValue);
+            // locations.style.transform = transformValue;
+        }, false);
+
+    }, false);
     </script>
 </head>
 
 <body>
     <div class="top section fixed-background">
-        <div class="header sans-narrow center-column dark">
-            Thailand
-            <div class="sub">Ashleigh & Richard's trip around the world.</div>
-        </div>
-        <div id="locations" class="locations dark sans-narrow">
+        <div id="locations" class="locations sans-narrow nav-bar">
             <a class="icon bangkok" href="#bangkok"></a>
             <a class="icon chiang-mai" href="#chiang_mai"></a>
             <a class="icon krabi" href="#krabi"></a>
+        </div>
+        <div class="header sans-narrow center-column dark">
+            Thailand
+            <div class="sub">Ashleigh & Richard's trip around the world<a href="http://www.thaispointingatthings.com/">.</a></div>
         </div>
     </div>
     <div class="mid">
