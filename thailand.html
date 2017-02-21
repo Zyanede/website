@@ -122,8 +122,8 @@
     
     .icon {
         display: block;
-        height: 10vw;
-        width: 10vw;
+        height: 20vh;
+        width: 20vh;
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 50%;
@@ -261,7 +261,7 @@
         });
     });
 
-    var origSize = 10;
+    var origSize = 20;
 
     window.addEventListener('load', function() {
         var locations = document.getElementById('locations'),
@@ -271,7 +271,7 @@
             // normalize scroll position as percentage
             console.log('height: ' + innerHeight);
             var scrolled = window.scrollY / innerHeight,
-                transformValue = (origSize * Math.max(0.4, (1 - scrolled))) + 'vw';
+                transformValue = (origSize * Math.max(0.4, (1 - scrolled))) + 'vh';
 
             $('.locations .icon').height(transformValue).width(transformValue);
             // locations.style.transform = transformValue;
