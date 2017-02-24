@@ -125,7 +125,7 @@ section {
 .sub-section .stay {
     list-style-type: none;
     text-transform: uppercase;
-    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: 'PT Sans Narrow', sans-serif !important;
     font-weight: 700;
 }
 
