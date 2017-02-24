@@ -1,400 +1,1222 @@
-<!DOCTYPE html><!--[if IE 8]><html class="no-js lt-ie9" lang="en" ><![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en" ng-app="app"><!--<![endif]--><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Ashleigh Amrine</title><link rel="stylesheet" href="styles/css/main.min.css"><link rel="icon" type="image/png" href="/assets/images/util/favicon.png"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script type="text/javascript">/* Modernizr 2.6.2 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-cssanimations-video-touch-mq-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes
- */
- ;window.Modernizr=function(a,b,c){function A(a){j.cssText=a}function B(a,b){return A(m.join(a+";")+(b||""))}function C(a,b){return typeof a===b}function D(a,b){return!!~(""+a).indexOf(b)}function E(a,b){for(var d in a){var e=a[d];if(!D(e,"-")&&j[e]!==c)return b=="pfx"?e:!0}return!1}function F(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:C(f,"function")?f.bind(d||b):f}return!1}function G(a,b,c){var d=a.charAt(0).toUpperCase()+a.slice(1),e=(a+" "+o.join(d+" ")+d).split(" ");return C(b,"string")||C(b,"undefined")?E(e,b):(e=(a+" "+p.join(d+" ")+d).split(" "),F(e,b,c))}var d="2.6.2",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m=" -webkit- -moz- -o- -ms- ".split(" "),n="Webkit Moz O ms",o=n.split(" "),p=n.toLowerCase().split(" "),q={},r={},s={},t=[],u=t.slice,v,w=function(a,c,d,e){var f,i,j,k,l=b.createElement("div"),m=b.body,n=m||b.createElement("body");if(parseInt(d,10))while(d--)j=b.createElement("div"),j.id=e?e[d]:h+(d+1),l.appendChild(j);return f=["&#173;",'<style id="s',h,'">',a,"</style>"].join(""),l.id=h,(m?l:n).innerHTML+=f,n.appendChild(l),m||(n.style.background="",n.style.overflow="hidden",k=g.style.overflow,g.style.overflow="hidden",g.appendChild(n)),i=c(l,a),m?l.parentNode.removeChild(l):(n.parentNode.removeChild(n),g.style.overflow=k),!!i},x=function(b){var c=a.matchMedia||a.msMatchMedia;if(c)return c(b).matches;var d;return w("@media "+b+" { #"+h+" { position: absolute; } }",function(b){d=(a.getComputedStyle?getComputedStyle(b,null):b.currentStyle)["position"]=="absolute"}),d},y={}.hasOwnProperty,z;!C(y,"undefined")&&!C(y.call,"undefined")?z=function(a,b){return y.call(a,b)}:z=function(a,b){return b in a&&C(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=u.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(u.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(u.call(arguments)))};return e}),q.touch=function(){var c;return"ontouchstart"in a||a.DocumentTouch&&b instanceof DocumentTouch?c=!0:w(["@media (",m.join("touch-enabled),("),h,")","{#modernizr{top:9px;position:absolute}}"].join(""),function(a){c=a.offsetTop===9}),c},q.cssanimations=function(){return G("animationName")},q.video=function(){var a=b.createElement("video"),c=!1;try{if(c=!!a.canPlayType)c=new Boolean(c),c.ogg=a.canPlayType('video/ogg; codecs="theora"').replace(/^no$/,""),c.h264=a.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/,""),c.webm=a.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/,"")}catch(d){}return c};for(var H in q)z(q,H)&&(v=H.toLowerCase(),e[v]=q[H](),t.push((e[v]?"":"no-")+v));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)z(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},A(""),i=k=null,e._version=d,e._prefixes=m,e._domPrefixes=p,e._cssomPrefixes=o,e.mq=x,e.testProp=function(a){return E([a])},e.testAllProps=G,e.testStyles=w,g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+t.join(" "):""),e}(this,this.document);
-  //https://raw.github.com/matthewlein/Modernizr/master/feature-detects/pixel-density.js
-  Modernizr.addTest('highres', function() {
-    // for opera
-    var ratio = '2.99/2';
-    // for webkit
-    var num = '1.499';
-    var mqs = [
-    'only screen and (-o-min-device-pixel-ratio:' + ratio + ')',
-    'only screen and (min--moz-device-pixel-ratio:' + ratio + ')',
-    'only screen and (-webkit-min-device-pixel-ratio:' + num + ')',
-    'only screen and (min-device-pixel-ratio:' + num + ')'
-    ];
-    var isHighRes = false;
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" ><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" ng-app="app">
+<!--<![endif]-->
 
-    // loop through vendors, checking non-prefixed first
-    for (var i = mqs.length - 1; i >= 0; i--) {
-      isHighRes = Modernizr.mq( mqs[i] );
-      // if found one, return early
-      if ( isHighRes ) {
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ashleigh Amrine</title>
+    <link rel="stylesheet" href="styles/css/main.min.css">
+    <link rel="icon" type="image/png" href="/assets/images/util/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+    /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
+     * Build: http://modernizr.com/download/#-cssanimations-video-touch-mq-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes
+     */
+    ;
+    window.Modernizr = function(a, b, c) {
+        function A(a) {
+            j.cssText = a
+        }
+
+        function B(a, b) {
+            return A(m.join(a + ";") + (b || ""))
+        }
+
+        function C(a, b) {
+            return typeof a === b
+        }
+
+        function D(a, b) {
+            return !!~("" + a).indexOf(b)
+        }
+
+        function E(a, b) {
+            for (var d in a) {
+                var e = a[d];
+                if (!D(e, "-") && j[e] !== c) return b == "pfx" ? e : !0
+            }
+            return !1
+        }
+
+        function F(a, b, d) {
+            for (var e in a) {
+                var f = b[a[e]];
+                if (f !== c) return d === !1 ? a[e] : C(f, "function") ? f.bind(d || b) : f
+            }
+            return !1
+        }
+
+        function G(a, b, c) {
+            var d = a.charAt(0).toUpperCase() + a.slice(1),
+                e = (a + " " + o.join(d + " ") + d).split(" ");
+            return C(b, "string") || C(b, "undefined") ? E(e, b) : (e = (a + " " + p.join(d + " ") + d).split(" "), F(e, b, c))
+        }
+        var d = "2.6.2",
+            e = {},
+            f = !0,
+            g = b.documentElement,
+            h = "modernizr",
+            i = b.createElement(h),
+            j = i.style,
+            k, l = {}.toString,
+            m = " -webkit- -moz- -o- -ms- ".split(" "),
+            n = "Webkit Moz O ms",
+            o = n.split(" "),
+            p = n.toLowerCase().split(" "),
+            q = {},
+            r = {},
+            s = {},
+            t = [],
+            u = t.slice,
+            v, w = function(a, c, d, e) {
+                var f, i, j, k, l = b.createElement("div"),
+                    m = b.body,
+                    n = m || b.createElement("body");
+                if (parseInt(d, 10))
+                    while (d--) j = b.createElement("div"), j.id = e ? e[d] : h + (d + 1), l.appendChild(j);
+                return f = ["&#173;", '<style id="s', h, '">', a, "</style>"].join(""), l.id = h, (m ? l : n).innerHTML += f, n.appendChild(l), m || (n.style.background = "", n.style.overflow = "hidden", k = g.style.overflow, g.style.overflow = "hidden", g.appendChild(n)), i = c(l, a), m ? l.parentNode.removeChild(l) : (n.parentNode.removeChild(n), g.style.overflow = k), !!i
+            },
+            x = function(b) {
+                var c = a.matchMedia || a.msMatchMedia;
+                if (c) return c(b).matches;
+                var d;
+                return w("@media " + b + " { #" + h + " { position: absolute; } }", function(b) {
+                    d = (a.getComputedStyle ? getComputedStyle(b, null) : b.currentStyle)["position"] == "absolute"
+                }), d
+            },
+            y = {}.hasOwnProperty,
+            z;
+        !C(y, "undefined") && !C(y.call, "undefined") ? z = function(a, b) {
+            return y.call(a, b)
+        } : z = function(a, b) {
+            return b in a && C(a.constructor.prototype[b], "undefined")
+        }, Function.prototype.bind || (Function.prototype.bind = function(b) {
+            var c = this;
+            if (typeof c != "function") throw new TypeError;
+            var d = u.call(arguments, 1),
+                e = function() {
+                    if (this instanceof e) {
+                        var a = function() {};
+                        a.prototype = c.prototype;
+                        var f = new a,
+                            g = c.apply(f, d.concat(u.call(arguments)));
+                        return Object(g) === g ? g : f
+                    }
+                    return c.apply(b, d.concat(u.call(arguments)))
+                };
+            return e
+        }), q.touch = function() {
+            var c;
+            return "ontouchstart" in a || a.DocumentTouch && b instanceof DocumentTouch ? c = !0 : w(["@media (", m.join("touch-enabled),("), h, ")", "{#modernizr{top:9px;position:absolute}}"].join(""), function(a) {
+                c = a.offsetTop === 9
+            }), c
+        }, q.cssanimations = function() {
+            return G("animationName")
+        }, q.video = function() {
+            var a = b.createElement("video"),
+                c = !1;
+            try {
+                if (c = !!a.canPlayType) c = new Boolean(c), c.ogg = a.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, ""), c.h264 = a.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/, ""), c.webm = a.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/, "")
+            } catch (d) {}
+            return c
+        };
+        for (var H in q) z(q, H) && (v = H.toLowerCase(), e[v] = q[H](), t.push((e[v] ? "" : "no-") + v));
+        return e.addTest = function(a, b) {
+            if (typeof a == "object")
+                for (var d in a) z(a, d) && e.addTest(d, a[d]);
+            else {
+                a = a.toLowerCase();
+                if (e[a] !== c) return e;
+                b = typeof b == "function" ? b() : b, typeof f != "undefined" && f && (g.className += " " + (b ? "" : "no-") + a), e[a] = b
+            }
+            return e
+        }, A(""), i = k = null, e._version = d, e._prefixes = m, e._domPrefixes = p, e._cssomPrefixes = o, e.mq = x, e.testProp = function(a) {
+            return E([a])
+        }, e.testAllProps = G, e.testStyles = w, g.className = g.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (f ? " js " + t.join(" ") : ""), e
+    }(this, this.document);
+    //https://raw.github.com/matthewlein/Modernizr/master/feature-detects/pixel-density.js
+    Modernizr.addTest('highres', function() {
+        // for opera
+        var ratio = '2.99/2';
+        // for webkit
+        var num = '1.499';
+        var mqs = [
+            'only screen and (-o-min-device-pixel-ratio:' + ratio + ')',
+            'only screen and (min--moz-device-pixel-ratio:' + ratio + ')',
+            'only screen and (-webkit-min-device-pixel-ratio:' + num + ')',
+            'only screen and (min-device-pixel-ratio:' + num + ')'
+        ];
+        var isHighRes = false;
+
+        // loop through vendors, checking non-prefixed first
+        for (var i = mqs.length - 1; i >= 0; i--) {
+            isHighRes = Modernizr.mq(mqs[i]);
+            // if found one, return early
+            if (isHighRes) {
+                return isHighRes;
+            }
+        }
+        // not highres
         return isHighRes;
-      }
-    }
-    // not highres
-    return isHighRes;
 
-  });</script>
+    });
+    </script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-48563438-3', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Roboto+Slab:400,300" rel="stylesheet" type="text/css">
+</head>
 
-  ga('create', 'UA-48563438-3', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Roboto+Slab:400,300" rel="stylesheet" type="text/css"></head><body data-spy="scroll" data-target="#navbar" data-offcanvas-nav="" data-offcanvas-nav-xmax="150"><header role="flyout" class="flyout" jf-offcanvas-nav="" jf-options="offcanvasOptions"><nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button><h1 class="semantic"><a class="navbar-brand" href="./#home" util-change-path="/">Ashleigh Amrine</a></h1></div><div class="nav-items"><ul class="nav navbar-nav"><li><a href="./#work" util-change-path="/work"><i class="fa fa-flask fa-lg"></i>Work</a></li><li><a href="./#about" util-change-path="/about"><i class="fa fa-female fa-lg"></i>About</a></li></ul></div></div></nav></header><div class="flyout-cover offcanvas-slide"></div><header class="navbar-top offcanvas-slide"><nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button><h1 class="semantic"><a class="navbar-brand" href="./#home" util-change-path="/">Ashleigh Amrine</a></h1></div><div class="nav-items"><ul class="nav navbar-nav"><li><a href="./#work" util-change-path="/work"><i class="fa fa-flask fa-lg"></i>Work</a></li><li><a href="./#about" util-change-path="/about"><i class="fa fa-female fa-lg"></i>About</a></li></ul></div></div></nav></header><div class="page scrollable offcanvas-slide"><!--[if lt IE 9]><div class="browser-upgrade-alert">
+<body data-spy="scroll" data-target="#navbar" data-offcanvas-nav="" data-offcanvas-nav-xmax="150">
+    <header role="flyout" class="flyout" jf-offcanvas-nav="" jf-options="offcanvasOptions">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+                    <h1 class="semantic"><a class="navbar-brand" href="./#home" util-change-path="/">Ashleigh Amrine</a></h1></div>
+                <div class="nav-items">
+                    <ul class="nav navbar-nav">
+                        <li><a href="./#work" util-change-path="/work"><i class="fa fa-flask fa-lg"></i>Work</a></li>
+                        <li><a href="./#about" util-change-path="/about"><i class="fa fa-female fa-lg"></i>About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="flyout-cover offcanvas-slide"></div>
+    <header class="navbar-top offcanvas-slide">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+                    <h1 class="semantic"><a class="navbar-brand" href="./#home" util-change-path="/">Ashleigh Amrine</a></h1></div>
+                <div class="nav-items">
+                    <ul class="nav navbar-nav">
+                        <li><a href="./#work" util-change-path="/work"><i class="fa fa-flask fa-lg"></i>Work</a></li>
+                        <li><a href="./#about" util-change-path="/about"><i class="fa fa-female fa-lg"></i>About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page scrollable offcanvas-slide">
+        <!--[if lt IE 9]><div class="browser-upgrade-alert">
   <div class="alert alert-danger">
     You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
     today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.
     </div>
-    </div><![endif]--><noscript><div class="browser-upgrade-alert">
-    <div class="alert alert-danger"><strong>Please enable Javascript.</strong> This website will not function properly without it.</div>
+    </div><![endif]-->
+        <noscript>
+            <div class="browser-upgrade-alert">
+                <div class="alert alert-danger"><strong>Please enable Javascript.</strong> This website will not function properly without it.</div>
+            </div>
+        </noscript>
+        <main role="main">
+            <a id="home" class="anchor top">&nbsp;</a>
+            <section role="intro" class="container">
+                <div class="banner-wrap">
+                    <div class="banner-body">
+                        <div class="profile-pic-wrapper">
+                            <img src="https://media.licdn.com/mpr/mpr/shrink_100_100/p/6/005/086/1f2/05040bb.jpg" alt="Ashleigh Amrine" class="profile-pic"></div>
+                    </div>
+                </div>
+                <div role="social-group">
+                    <div class="social-btns">
+                        <ul>
+                            <li><a href="https://www.linkedin.com/pub/ashleigh-amrine/49/797/833" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-linkedin-square"></i> LinkedIn</a></li>
+                            <li><a href="./assets/Resume.pdf" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-file-text-o"></i> Resume</a></li>
+                        </ul>
+                    </div>
+                    <p><a href="https://drive.google.com/file/d/0B7xtTJ5xv0PhT1pRalBEb1Nnd2c/view?usp=sharing" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-download"></i> Demos & Code Samples</a></p>
+                    <p class="email"><a href="mailto:hi@ashleighamrine.me" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-envelope-o fa-lg"></i> hi@ashleighamrine.me</a></p>
+                </div>
+            </section>
+            <hr class="accent">
+            <article role="work" class="container" ng-controller="WorkCtrl">
+                <a id="work" class="anchor"></a>
+                <div class="work-detail ng-cloak" ng-show="state == STATE_DETAIL" ng-hide="state == STATE_IDLE">
+                    <article role="work">
+                        <header class="detail-title-wrap">
+                            <div class="work-nav">
+                                <div class="btn-group work-nav-group">
+                                    <a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(-1)"><i class="fa fa-arrow-left"></i></a>
+                                    <a href="" class="btn btn-primary btn-sm" ng-click="projectIncrement(1)"><i class="fa fa-arrow-right"></i></a></div>
+                            </div>
+                            <div class="detail-title">
+                                <h1 class="title"><span class="icon"><img ng-src="{[workCur.thumbIcon]}" src="" alt="" class="icon-img"></span><span class="copy">{[workCur.title]}</span></h1></div>
+                        </header>
+                        <div class="detail-media">
+                            <div class="detail-item" ng-repeat="item in workCur.detailMedia" ng-switch="" on="item.type">
+                                <div ng-switch-when="vimeo" class="video-container item-media loading-ani" item-index="{[$index]}">
+                                    <iframe ng-src="{[item.src]}" id="foo" vimeo-embed="item" vvimeo-embed-src="item.src" frameborder="0" width="1280" height="720" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="vimeo"></iframe>
+                                </div>
+                                <div ng-switch-when="youtube" class="video-container youtube item-media loading-ani" youtube-embed="item">
+                                    <div id="youtube-player"></div>
+                                </div>
+                                <div class="item-img-outer item-media loading-ani lead-media" ng-switch-when="image"><img class="item-img" ng-src="{[item.src]}" alt="" src=""></div>
+                                <video ng-switch-when="video" jf-video="item" jf-video-id="'video-work-' + $index" id="video-id-fpo" class="item-video item-media video-js vjs-default-skin vjs-jf-skin"></video>
+                            </div>
+                        </div>
+                        <ul class="detail-links" ng-show="workCur.projectLinksArr.length > 0">
+                            <li ng-repeat="item in workCur.projectLinksArr">
+                                <a href="{[item.href]}" class="btn btn-default btn-sm" target="_blank" angular-bind-html="item.label"></a>
+                            </li>
+                        </ul>
+                        <section class="detail-desc-wrap">
+                            <div class="detail-desc">
+                                <div class="detail-post-meta ng-cloak" ng-show="workCur.read_time || workCur.timestamp"><span class="detail-read-time ng-cloak" ng-show="workCur.read_time"><i class="fa fa-bookmark"></i> {[workCur.read_time]} min read</span> <span class="detail-timestamp ng-cloak" ng-show="workCur.timestamp"><i class="fa fa-calendar"></i> <span><time pubdate="{[workCur.timestamp]}">{[workCur.timestamp | amDateFormat:'YYYY MMMM Do']}</time></span></span>
+                                </div>
+                                <div>
+                                    <div class="description" angular-bind-html="workCur.descProcessed"></div>
+                                </div>
+                                <div class="press" ng-show="workCur.pressArr">
+                                    <h3><i class="icon-megaphone icon"></i>Press</h3>
+                                    <ul>
+                                        <li ng-repeat="item in workCur.pressArr"><em>{[item.source]}, {[item.date]}</em>
+                                            <div class="indent"><a ng-href="{[item.url]}" target="_blank" href="">{[item.title]}</a></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tech">
+                                    <div class="tech-icons logo-list" ng-show="workCur.techProcessedArr.length > 0"><a ng-repeat="item in workCur.techProcessedArr" href="" ng-href="{[item.url]}" target="_blank"><span class="sprite tech-{[item.id]}" util-hover="pulse animated"></span></a></div>
+                                </div>
+                                <div class="detail-sub-info" ng-show="workCur.teamProcessedArr">
+                                    <div class="team">
+                                        <h4 class="title"><i class="icon-user icon"></i> Humans</h4>
+                                        <ul class="list">
+                                            <li ng-repeat="item in workCur.teamProcessedArr"><em><span angular-bind-html="item.role" class="role"></span></em>
+                                                <br>
+                                                <div angular-bind-html="item.humans" class="indent"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </article>
+                </div>
+                <div ng-show="state == STATE_DETAIL" class="ng-cloak">
+                    <div class="work-btm">
+                        <div class="work-nav-btm">
+                            <div class="btn-group work-nav-group"><a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(-1)"><i class="fa fa-arrow-left"></i></a><a href="" class="btn btn-sm btn-primary" ng-click="utils.scrollAnimateTo('#work')"><i class="fa fa-arrow-up"></i></a><a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(1)"><i class="fa fa-arrow-right"></i></a></div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="work-thumbs">
+                    <div class="work-ttl">
+                        <h3 class="anchor title">Work</h3></div>
+                    <div class="work-thumb-container">
+                        <div class="work-thumb-list small-block-grid-2 large-block-grid-4">
+                            <div class="work-thumb-item">
+                                <a href="#!/work/firefall" util-change-path="/work/firefall" class="item-link">
+                                    <div class="item-img-outer loading-ani">
+                                        <div class="item-img-inner">
+                                            <img src="./assets/images/util/firefall-thumb.png" alt="Red 5 Studios > Firefall" src="" class="item-img">
+                                        </div>
+                                    </div>
+                                    <div class="item-title-outer">
+                                        <div class="item-title">
+                                            <div class="item-title-txt-outer">
+                                                <div class="item-title-txt">Firefall
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="work-thumb-item">
+                                <a href="#!/work/kaneva" util-change-path="/work/kaneva" class="item-link">
+                                    <div class="item-img-outer loading-ani">
+                                        <div class="item-img-inner">
+                                            <img src="./assets/images/util/kaneva_thumb.png" alt="Client Name › Title of Project 4" src="" class="item-img">
+                                        </div>
+                                    </div>
+                                    <div class="item-title-outer">
+                                        <div class="item-title">
+                                            <div class="item-title-txt-outer">
+                                                <div class="item-title-txt">Kaneva
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="work-thumb-item">
+                                <a href="#!/work/game-over-ever-after" util-change-path="/work/game-over-ever-after" class="item-link">
+                                    <div class="item-img-outer loading-ani">
+                                        <div class="item-img-inner">
+                                            <img src="./assets/images/util/GameOverEverAfter.png" alt="Global Game Jam 2015 › Game Over Ever After" src="" class="item-img">
+                                        </div>
+                                    </div>
+                                    <div class="item-title-outer">
+                                        <div class="item-title">
+                                            <div class="item-title-txt-outer">
+                                                <div class="item-title-txt">Game Over Ever After
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="work-thumb-item">
+                                <a href="#!/work/in-flew-enza" util-change-path="/work/in-flew-enza" class="item-link">
+                                    <div class="item-img-outer loading-ani">
+                                        <div class="item-img-inner">
+                                            <img src="./assets/images/util/inflewenza_thumb.png" alt="CDC Games for Health Jam 2013 › In-flew-enza" src="" class="item-img">
+                                        </div>
+                                    </div>
+                                    <div class="item-title-outer">
+                                        <div class="item-title">
+                                            <div class="item-title-txt-outer">
+                                                <div class="item-title-txt">In-flew-enza
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <section role="about" class="container">
+                <hr class="accent">
+                <a id="about" class="anchor"></a>
+                <div class="bio" xng-controller="AboutCtrl">
+                    <h3 class="header">About</h3>
+                    <div class="content">
+                        <h4 class="subheader"><i class="fa fa-female"></i> Welcome!</h4>
+                        <div class="subcontent">
+                            <p>I am a UI Programmer for the game Firefall at Red 5 Studios and the Content Coordinator and Design Track Lead for the Southern Interactive Entertainment and Games Expo (SIEGE).</p>
+                            <p>Prior to joining Red 5 Studios, I acquired my passion for game development through my former role of Vice President for Georgia Southern University's Aurora Game Development Club.</p>
+                        </div>
+                        <h4 class="subheader"><i class="fa fa-key"></i> Experience</h4>
+                        <div class="subcontent">
+                            <p>
+                                <strong>UI Programmer</strong>
+                                <br>
+                                <i>Red 5 Studios</i>
+                                <br> July 2015-Present
+                                <br>
+                                <ul>
+                                    <li>Launched and supported the Chinese-localized release of <i>Firefall</i>, a massively-multiplayer open-world shooter for the PC platform.</li>
+                                    <br>
+                                    <li>Implemented new Lua-based UI features, such as PvP HUD and Tinkering System overhaul.</li>
+                                    <li>Improved C++-based widget functionality, resolved UI aspect ratio responsiveness and performance, and refactored PvP Libraries to increase UI programmer efficiency.</li>
+                                </ul>
+                                <br>
+                                <br>
+                                <strong>Software Engineer</strong>
+                                <br>
+                                <i>Kaneva, LLC</i>
+                                <br> July 2014-July 2015
+                                <br>
+                                <ul>
+                                    <li>Improved environment sytem allowing users to adjust lighting and fog settings; including customizable day/night cycles.</li>
+                                    <br>
+                                    <li>Developed Lua-based quest and vendor systems for use by players to build out their virtual worlds' game content; including scheduled crafting cycles, customizable quest trees, and meta currency trading.</li>
+                                </ul>
+                                <br>
+                                <br>
+                                <strong>Mobile Developer</strong>
+                                <br>
+                                <i>Georgia Southern University</i>
+                                <br> 2013-2014
+                                <br>
+                                <ul>
+                                    <li>Designed, developed, and launched <i><a href="https://play.google.com/store/apps/details?id=edu.georgiasouthern.georgiahistoricalmarkers&hl=en">Georgia Historical Markers</a></i>, an enterprise mobile application initiative of the Governor's Office of the State of Georgia, using jQuery Mobile and native Java on the Google Play Store.</li>
+                                    <br>
+                                    <li>Responsible for integrating coursework management tools into the redesigned student facing unviersity portal, <i>my.georgiasouthern.edu</i>, allowing students to quickly view pertinent information.</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4 class="subheader"><i class="fa fa-shield"></i> Education</h4>
+                        <div class="subcontent">
+                            <p><strong>Georgia Southern University</strong>
+                                <br><i>BS, Computer Science</i>
+                                <br><i>Major GPA 3.85; Upsilon Pi Epsilon and Dean's List Recipient</i>
+                                <br>2011-2014
+                                <br>
+                                <br><strong>Gainesville State College</strong>
+                                <br><i>AA, Art</i>
+                                <br>2009-2010</p>
+                        </div>
+                        <h4 class="subheader"><i class="fa fa-leaf"></i> Volunteer</h4>
+                        <div class="subcontent">
+                            <p><strong>Content Coordinator</strong>
+                                <br><i>Southern Interactive Entertainment Games Expo (SIEGE)</i>
+                                <br>October 2014-Present
+                                <br>
+                                <br><strong>Design Track Lead</strong>
+                                <br><i>Southern Interactive Entertainment Games Expo (SIEGE)</i>
+                                <br>April 2014-Present
+                                <br>
+                                <br><strong>Board Member</strong>
+                                <br><i>Advancement of Women in Gaming</i>
+                                <br>December 2014-Present
+                                <br>
+                                <br><strong>Vice President</strong>
+                                <br><i>Aurora Game Development Club @ Georgia Southern University</i>
+                                <br>2013-2014</p>
+                        </div>
+                        <h4 class="subheader"><i class="fa fa-heart"></i> Interests</h4>
+                        <div class="subcontent">
+                            <p>In my spare time, I am an avid artist and musician.</p>
+                            <p>I enjoy participating in game jams, developing for experimental technologies, drinking coffee, learning useless trivia, and watching my cat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-section">
+                    <div class="content">
+                        <hr>
+                        <h4><i class="fa fa-pencil-square-o"></i> Languages</h4>
+                        <p>Provided in order of proficiency.</p>
+                        <div class="logo-list">
+                            <a href="http://www.lua.org/" target="_blank" util-hover="pulse animated" alt="Lua"><span class="sprite brand-fpo-0 js-hover-target"></span></a>
+                            <a href="http://www.cplusplus.com/" target="_blank" util-hover="pulse animated" alt="C++"><span class="sprite brand-fpo-3 js-hover-target"></span></a>
+                            <a href="http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29" target="_blank" util-hover="pulse animated" alt="C#"><span class="sprite brand-fpo-4 js-hover-target"></span></a>
+                            <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank" util-hover="pulse animated" alt="JavaScript"><span class="sprite brand-fpo-5 js-hover-target"></span></a>
+                            <a href="https://www.java.com/en/" target="_blank" util-hover="pulse animated" alt="Java"><span class="sprite brand-fpo-2 js-hover-target"></span></a>
+                            <a href="http://http://en.wikipedia.org/wiki/HTML5" target="_blank" util-hover="pulse animated" alt="HTML 5"><span class="sprite brand-fpo-9 js-hover-target"></span></a>
+                        </div>
+                        <hr>
+                        <h4><i class="fa fa-cogs"></i> Software</h4>
+                        <p>Provided in order of proficiency.</p>
+                        <div class="logo-list">
+                            <a href="https://unity3d.com/" target="_blank" util-hover="pulse animated" alt="Unity 3D"><span class="sprite recog-fpo-0 js-hover-target"></span></a>
+                            <a href="https://www.visualstudio.com/" target="_blank" util-hover="pulse animated" alt="Visual Studio"><span class="sprite recog-fpo-2 js-hover-target"></span></a>
+                            <a href="https://www.unrealengine.com/what-is-unreal-engine-4" target="_blank" util-hover="pulse animated" alt="Unreal Engine 4"><span class="sprite recog-fpo-3 js-hover-target"></span></a>
+                            <a href="https://www.blender.org/" target="_blank" util-hover="pulse animated" alt="Blender"><span class="sprite brand-fpo-8 js-hover-target"></span></a>
+                            <a href="http://www.adobe.com/products/illustrator.html" target="_blank" util-hover="pulse animated" alt="Adobe Illustrator"><span class="sprite recog-fpo-4 js-hover-target"></span></a>
+                            <a href="http://www.adobe.com/products/photoshop.html" target="_blank" util-hover="pulse animated" alt="Adobe Photoshop"><span class="sprite recog-fpo-1 js-hover-target"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <hr class="footer accent">
+        <footer role="footer" class="container">
+            <nav role="footer">
+                <ul>
+                    <li><a class="home" href="./" ng-href="#!/" util-change-path="/"><i class="fa fa-home fa-lg"></i>Home</a></li>
+                    <li><a href="./#work" util-change-path="/work"><i class="fa fa-flask fa-lg"></i>Work</a></li>
+                    <li><a href="./#about" util-change-path="/about"><i class="fa fa-female fa-lg"></i>About</a></li>
+                </ul>
+            </nav>
+            <h3>Connect</h3>
+            <p><i>"To me, one of the hallmarks of good programming is that the code looks so simple that you are tempted to dismiss the skill of the author. Writing good clean understandable code is hard work whatever language you are using"</i> -- Francis Glassborow</p>
+            <div role="social-group">
+                <div class="social-btns">
+                    <ul>
+                        <li><a href="https://www.linkedin.com/pub/ashleigh-amrine/49/797/833" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-linkedin-square"></i> LinkedIn</a></li>
+                        <li><a href="./assets/Resume.pdf" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-file-text-o"></i> Resume</a></li>
+                    </ul>
+                </div>
+                <p><a href="https://drive.google.com/file/d/0B7xtTJ5xv0PhT1pRalBEb1Nnd2c/view?usp=sharing" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-download"></i> Demos & Code Samples</a></p>
+                <p class="email"><a href="mailto:hi@ashleighamrine.me" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-envelope-o fa-lg"></i> hi@ashleighamrine.me</a></p>
+            </div>
+            <div class="content-section">
+                <div class="content">
+                    <p>&copy; 2015 Ashleigh Amrine &amp; respective parties. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
     </div>
-    </noscript>
-    <main role="main">
-      <a id="home" class="anchor top">&nbsp;</a>
-      <section role="intro" class="container">
-        <div class="banner-wrap">
-          <div class="banner-body">
-            <div class="profile-pic-wrapper">
-            <img src="https://media.licdn.com/mpr/mpr/shrink_100_100/p/6/005/086/1f2/05040bb.jpg" alt="Ashleigh Amrine" class="profile-pic"></div>
-          </div>
-        </div>
-      <div role="social-group">
-        <div class="social-btns"><ul>
-          <li><a href="https://www.linkedin.com/pub/ashleigh-amrine/49/797/833" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-linkedin-square"></i> LinkedIn</a></li>
-          <li><a href="./assets/Resume.pdf" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-file-text-o"></i> Resume</a></li>
-        </ul></div>
-        <p><a href="https://drive.google.com/file/d/0B7xtTJ5xv0PhT1pRalBEb1Nnd2c/view?usp=sharing" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-download"></i> Demos & Code Samples</a></p>
-      <p class="email"><a href="mailto:hi@ashleighamrine.me" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-envelope-o fa-lg"></i> hi@ashleighamrine.me</a></p></div>
-    </section>
-    <hr class="accent"><article role="work" class="container" ng-controller="WorkCtrl"><a id="work" class="anchor"></a> 
-    <div class="work-detail ng-cloak" ng-show="state == STATE_DETAIL" ng-hide="state == STATE_IDLE"><article role="work"><header class="detail-title-wrap">
-      <div class="work-nav">
-        <div class="btn-group work-nav-group">
-        <a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(-1)"><i class="fa fa-arrow-left"></i></a>
-        <a href="" class="btn btn-primary btn-sm" ng-click="projectIncrement(1)"><i class="fa fa-arrow-right"></i></a></div>
-      </div>
-      <div class="detail-title">
-      <h1 class="title"><span class="icon"><img ng-src="{[workCur.thumbIcon]}" src="" alt="" class="icon-img"></span><span class="copy">{[workCur.title]}</span></h1></div>
-    </header>
-    <div class="detail-media">
-      <div class="detail-item" ng-repeat="item in workCur.detailMedia" ng-switch="" on="item.type">
-        <div ng-switch-when="vimeo" class="video-container item-media loading-ani" item-index="{[$index]}"><iframe ng-src="{[item.src]}" id="foo" vimeo-embed="item" vvimeo-embed-src="item.src" frameborder="0" width="1280" height="720" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="vimeo"></iframe></div><div ng-switch-when="youtube" class="video-container youtube item-media loading-ani" youtube-embed="item"><div id="youtube-player"></div></div><div class="item-img-outer item-media loading-ani lead-media" ng-switch-when="image"><img class="item-img" ng-src="{[item.src]}" alt="" src=""></div><video ng-switch-when="video" jf-video="item" jf-video-id="'video-work-' + $index" id="video-id-fpo" class="item-video item-media video-js vjs-default-skin vjs-jf-skin"></video></div></div><ul class="detail-links" ng-show="workCur.projectLinksArr.length > 0"><li ng-repeat="item in workCur.projectLinksArr"><a href="{[item.href]}" class="btn btn-default btn-sm" target="_blank" angular-bind-html="item.label"></a></li></ul><section class="detail-desc-wrap"><div class="detail-desc"><div class="detail-post-meta ng-cloak" ng-show="workCur.read_time || workCur.timestamp"><span class="detail-read-time ng-cloak" ng-show="workCur.read_time"><i class="fa fa-bookmark"></i> {[workCur.read_time]} min read</span> <span class="detail-timestamp ng-cloak" ng-show="workCur.timestamp"><i class="fa fa-calendar"></i> <span><time pubdate="{[workCur.timestamp]}">{[workCur.timestamp | amDateFormat:'YYYY MMMM Do']}</time></span></span></div><div><div class="description" angular-bind-html="workCur.descProcessed"></div></div><div class="press" ng-show="workCur.pressArr"><h3><i class="icon-megaphone icon"></i>Press</h3><ul><li ng-repeat="item in workCur.pressArr"><em>{[item.source]}, {[item.date]}</em><div class="indent"><a ng-href="{[item.url]}" target="_blank" href="">{[item.title]}</a></div></li></ul></div><div class="tech"><div class="tech-icons logo-list" ng-show="workCur.techProcessedArr.length > 0"><a ng-repeat="item in workCur.techProcessedArr" href="" ng-href="{[item.url]}" target="_blank"><span class="sprite tech-{[item.id]}" util-hover="pulse animated"></span></a></div></div><div class="detail-sub-info" ng-show="workCur.teamProcessedArr"><div class="team"><h4 class="title"><i class="icon-user icon"></i> Humans</h4><ul class="list"><li ng-repeat="item in workCur.teamProcessedArr"><em><span angular-bind-html="item.role" class="role"></span></em><br><div angular-bind-html="item.humans" class="indent"></div></li></ul></div></div></div></section></article></div><div ng-show="state == STATE_DETAIL" class="ng-cloak"><div class="work-btm"><div class="work-nav-btm"><div class="btn-group work-nav-group"><a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(-1)"><i class="fa fa-arrow-left"></i></a><a href="" class="btn btn-sm btn-primary" ng-click="utils.scrollAnimateTo('#work')"><i class="fa fa-arrow-up"></i></a><a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(1)"><i class="fa fa-arrow-right"></i></a></div></div></div><hr></div><div class="work-thumbs"><div class="work-ttl"><h3 class="anchor title">Work</h3></div><div class="work-thumb-container">
-        <div class="work-thumb-list small-block-grid-2 large-block-grid-4">
+    <script>
+    window.appData = {
+        "build": "2014.01.22.0",
+        "productionHostname": "ashleighamrine.me",
+        "devHostname": "zyanede.github.io",
+        "firebaseBlogDomain": "https://username.firebaseio.com/blog/"
 
-          <div class="work-thumb-item">
-            <a href="#!/work/firefall" util-change-path="/work/firefall" class="item-link">
-              <div class="item-img-outer loading-ani">
-                <div class="item-img-inner">
-                  <img src="./assets/images/util/firefall-thumb.png" alt="Red 5 Studios > Firefall" src="" class="item-img">
-                </div>
-              </div>
-              <div class="item-title-outer">
-                <div class="item-title">
-                  <div class="item-title-txt-outer">
-                    <div class="item-title-txt">Firefall
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="work-thumb-item">
-            <a href="#!/work/kaneva" util-change-path="/work/kaneva" class="item-link">
-              <div class="item-img-outer loading-ani">
-                <div class="item-img-inner">
-                  <img src="./assets/images/util/kaneva_thumb.png" alt="Client Name › Title of Project 4" src="" class="item-img">
-                </div>
-              </div>
-              <div class="item-title-outer">
-                <div class="item-title">
-                  <div class="item-title-txt-outer">
-                    <div class="item-title-txt">Kaneva
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="work-thumb-item">
-            <a href="#!/work/game-over-ever-after" util-change-path="/work/game-over-ever-after" class="item-link">
-              <div class="item-img-outer loading-ani">
-                <div class="item-img-inner">
-                  <img src="./assets/images/util/GameOverEverAfter.png" alt="Global Game Jam 2015 › Game Over Ever After" src="" class="item-img">
-                </div>
-              </div>
-              <div class="item-title-outer">
-                <div class="item-title">
-                  <div class="item-title-txt-outer">
-                    <div class="item-title-txt">Game Over Ever After
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="work-thumb-item">
-            <a href="#!/work/in-flew-enza" util-change-path="/work/in-flew-enza" class="item-link">
-              <div class="item-img-outer loading-ani">
-                <div class="item-img-inner">
-                  <img src="./assets/images/util/inflewenza_thumb.png" alt="CDC Games for Health Jam 2013 › In-flew-enza" src="" class="item-img">
-                </div>
-              </div>
-              <div class="item-title-outer">
-                <div class="item-title">
-                  <div class="item-title-txt-outer">
-                    <div class="item-title-txt">In-flew-enza
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div></article><section role="about" class="container"><hr class="accent"><a id="about" class="anchor"></a>
-    <div class="bio" xng-controller="AboutCtrl">
-    <h3 class="header">About</h3>
-    <div class="content">
-      <h4 class="subheader"><i class="fa fa-female"></i> Welcome!</h4>
-      <div class="subcontent"><p>I am a UI Programmer for the game Firefall at Red 5 Studios and the Content Coordinator and Design Track Lead for the Southern Interactive Entertainment and Games Expo (SIEGE).</p><p>Prior to joining Red 5 Studios, I acquired my passion for game development through my former role of Vice President for Georgia Southern University's Aurora Game Development Club.</p></div>
-      <h4 class="subheader"><i class="fa fa-key"></i> Experience</h4>
-      <div class="subcontent"><p>
-      <strong>UI Programmer</strong><br>
-      <i>Red 5 Studios</i><br>
-      July 2015-Present<br><ul>
-      <li>Launched and supported the Chinese-localized release of <i>Firefall</i>, a massively-multiplayer open-world shooter for the PC platform.</li><br>
-      <li>Implemented new Lua-based UI features, such as PvP HUD and Tinkering System overhaul.</li>
-      <li>Improved C++-based widget functionality, resolved UI aspect ratio responsiveness and performance, and refactored PvP Libraries to increase UI programmer efficiency.</li></ul><br><br>
-      <strong>Software Engineer</strong><br>
-      <i>Kaneva, LLC</i><br>
-      July 2014-July 2015<br><ul>
-      <li>Improved environment sytem allowing users to adjust lighting and fog settings; including customizable day/night cycles.</li><br>
-      <li>Developed Lua-based quest and vendor systems for use by players to build out their virtual worlds' game content; including scheduled crafting cycles, customizable quest trees, and meta currency trading.</li></ul><br><br>
-      <strong>Mobile Developer</strong><br>
-      <i>Georgia Southern University</i><br>
-      2013-2014<br><ul>
-      <li>Designed, developed, and launched <i><a href="https://play.google.com/store/apps/details?id=edu.georgiasouthern.georgiahistoricalmarkers&hl=en">Georgia Historical Markers</a></i>, an enterprise mobile application initiative of the Governor's Office of the State of Georgia, using jQuery Mobile and native Java on the Google Play Store.</li><br>
-      <li>Responsible for integrating coursework management tools into the redesigned student facing unviersity portal, <i>my.georgiasouthern.edu</i>, allowing students to quickly view pertinent information.</li></ul></p></div>
-    </div>
-    <div class="content">
-      <h4 class="subheader"><i class="fa fa-shield"></i> Education</h4>
-      <div class="subcontent"><p><strong>Georgia Southern University</strong><br><i>BS, Computer Science</i><br><i>Major GPA 3.85; Upsilon Pi Epsilon and Dean's List Recipient</i><br>2011-2014<br><br><strong>Gainesville State College</strong><br><i>AA, Art</i><br>2009-2010</p></div>
-      <h4 class="subheader"><i class="fa fa-leaf"></i> Volunteer</h4>
-      <div class="subcontent"><p><strong>Content Coordinator</strong><br><i>Southern Interactive Entertainment Games Expo (SIEGE)</i><br>October 2014-Present<br><br><strong>Design Track Lead</strong><br><i>Southern Interactive Entertainment Games Expo (SIEGE)</i><br>April 2014-Present<br><br><strong>Board Member</strong><br><i>Advancement of Women in Gaming</i><br>December 2014-Present<br><br><strong>Vice President</strong><br><i>Aurora Game Development Club @ Georgia Southern University</i><br>2013-2014</p></div>
-      <h4 class="subheader"><i class="fa fa-heart"></i> Interests</h4>
-      <div class="subcontent"><p>In my spare time, I am an avid artist and musician.</p><p>I enjoy participating in game jams, developing for experimental technologies, drinking coffee, learning useless trivia, and watching my cat.</p></div>
-    </div>
-    </div>
-    <div class="content-section">
-      <div class="content"><hr>
-        <h4><i class="fa fa-pencil-square-o"></i> Languages</h4>
-        <p>Provided in order of proficiency.</p>
-        <div class="logo-list">
-          <a href="http://www.lua.org/" target="_blank" util-hover="pulse animated" alt="Lua"><span class="sprite brand-fpo-0 js-hover-target"></span></a> 
-          <a href="http://www.cplusplus.com/" target="_blank" util-hover="pulse animated" alt="C++"><span class="sprite brand-fpo-3 js-hover-target"></span></a>
-          <a href="http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29" target="_blank" util-hover="pulse animated" alt="C#"><span class="sprite brand-fpo-4 js-hover-target"></span></a> 
-          <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank" util-hover="pulse animated" alt="JavaScript"><span class="sprite brand-fpo-5 js-hover-target"></span></a> 
-          <a href="https://www.java.com/en/" target="_blank" util-hover="pulse animated" alt="Java"><span class="sprite brand-fpo-2 js-hover-target"></span></a> 
-          <a href="http://http://en.wikipedia.org/wiki/HTML5" target="_blank" util-hover="pulse animated" alt="HTML 5"><span class="sprite brand-fpo-9 js-hover-target"></span></a> 
-        </div><hr>
-        <h4><i class="fa fa-cogs"></i> Software</h4>
-        <p>Provided in order of proficiency.</p>
-        <div class="logo-list">
-          <a href="https://unity3d.com/" target="_blank" util-hover="pulse animated" alt="Unity 3D"><span class="sprite recog-fpo-0 js-hover-target"></span></a> 
-          <a href="https://www.visualstudio.com/" target="_blank" util-hover="pulse animated" alt="Visual Studio"><span class="sprite recog-fpo-2 js-hover-target"></span></a> 
-          <a href="https://www.unrealengine.com/what-is-unreal-engine-4" target="_blank" util-hover="pulse animated" alt="Unreal Engine 4"><span class="sprite recog-fpo-3 js-hover-target"></span></a> 
-          <a href="https://www.blender.org/" target="_blank" util-hover="pulse animated" alt="Blender"><span class="sprite brand-fpo-8 js-hover-target"></span></a> 
-          <a href="http://www.adobe.com/products/illustrator.html" target="_blank" util-hover="pulse animated" alt="Adobe Illustrator"><span class="sprite recog-fpo-4 js-hover-target"></span></a> 
-          <a href="http://www.adobe.com/products/photoshop.html" target="_blank" util-hover="pulse animated" alt="Adobe Photoshop"><span class="sprite recog-fpo-1 js-hover-target"></span></a>
-        </div>
-      </div></div></section></main><hr class="footer accent"><footer role="footer" class="container"><nav role="footer"><ul><li><a class="home" href="./" ng-href="#!/" util-change-path="/"><i class="fa fa-home fa-lg"></i>Home</a></li><li><a href="./#work" util-change-path="/work"><i class="fa fa-flask fa-lg"></i>Work</a></li><li><a href="./#about" util-change-path="/about"><i class="fa fa-female fa-lg"></i>About</a></li></ul></nav><h3>Connect</h3>
-      <p><i>"To me, one of the hallmarks of good programming is that the code looks so simple that you are tempted to dismiss the skill of the author. Writing good clean understandable code is hard work whatever language you are using"</i> -- Francis Glassborow</p>
-      <div role="social-group"><div class="social-btns"><ul><li><a href="https://www.linkedin.com/pub/ashleigh-amrine/49/797/833" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-linkedin-square"></i> LinkedIn</a></li>
-      <li><a href="./assets/Resume.pdf" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-file-text-o"></i> Resume</a></li>
-      </ul></div>
-        <p><a href="https://drive.google.com/file/d/0B7xtTJ5xv0PhT1pRalBEb1Nnd2c/view?usp=sharing" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-lg fa-download"></i> Demos & Code Samples</a></p><p class="email"><a href="mailto:hi@ashleighamrine.me" target="_blank" class="btn btn-default btn-sm"><i class="fa fa-envelope-o fa-lg"></i> hi@ashleighamrine.me</a></p></div><div class="content-section"><div class="content"><p>&copy; 2015 Ashleigh Amrine &amp; respective parties. All rights reserved.</p></div></div></footer></div><script>window.appData = {
-    "build": "2014.01.22.0"
-    ,"productionHostname": "ashleighamrine.me"
-    ,"devHostname": "zyanede.github.io"
-    ,"firebaseBlogDomain": "https://username.firebaseio.com/blog/"
 
-    
 
-    ,"work": {
-      "projects":[
-        {"id":"firefall","thumbImage":"http://orig14.deviantart.net/9c02/f/2012/090/c/7/firefall_by_jovechiere-d4ujd73.png","thumbIcon":"http://orig14.deviantart.net/9c02/f/2012/090/c/7/firefall_by_jovechiere-d4ujd73.png","client":"Red 5 Studios","title":"Firefall","date":"2015","desc":[
-          "<br>","<br>","### About\n","Firefall is a massively-multiplayer open-world shooter for the PC platform, now supporting a launch of the Chinese-localized and global overhaul. Currently, I'm implementing several new Lua-based UI features and C++ functionality improvements.\n","<a href='http://www.firefallthegame.com/'>", "Visit Firefall", "</a>"]
-          ,"techArr":[
-            "teamwork","visualstudio","sublime","css3"] 
-          ,"detailMedia":[
-              {"type":"youtube","id":"2cxeAhxSoyo"}]
+        ,
+        "work": {
+            "projects": [{
+                "id": "firefall",
+                "thumbImage": "http://orig14.deviantart.net/9c02/f/2012/090/c/7/firefall_by_jovechiere-d4ujd73.png",
+                "thumbIcon": "http://orig14.deviantart.net/9c02/f/2012/090/c/7/firefall_by_jovechiere-d4ujd73.png",
+                "client": "Red 5 Studios",
+                "title": "Firefall",
+                "date": "2015",
+                "desc": [
+                    "<br>", "<br>", "### About\n", "Firefall is a massively-multiplayer open-world shooter for the PC platform, now supporting a launch of the Chinese-localized and global overhaul. Currently, I'm implementing several new Lua-based UI features and C++ functionality improvements.\n", "<a href='http://www.firefallthegame.com/'>", "Visit Firefall", "</a>"
+                ],
+                "techArr": [
+                    "teamwork", "visualstudio", "sublime", "css3"
+                ],
+                "detailMedia": [{
+                    "type": "youtube",
+                    "id": "2cxeAhxSoyo"
+                }]
+            }, {
+                "id": "kaneva",
+                "thumbImage": "http://img.informer.com/icons/png/48/3759/3759495.png",
+                "thumbIcon": "http://img.informer.com/icons/png/48/3759/3759495.png",
+                "client": "Kaneva, LLC",
+                "title": "Kaneva",
+                "date": "2013",
+                "desc": [
+                    "<br>", "<br>", "### About\n", "The Virtual World of Kaneva gives players the ability to explore and create a range of virtual worlds containing social and MMO style game systems. Driven on user-generated content, the virtual MMOG Kaneva platform has the potential for building massive worlds with fully scripted game environments.\n", "I was a software engineer on the team responsible for building the entire game tools system - from collaboration on design, to building the menus from the artist's compositions, to programming the functionality scripted in Lua on top of the Kaneva platform built in C++.\n", "<a href='http://kaneva.com'>", "Visit Kaneva", "</a>", "\n### Contributions", "I have contributed to many menu and game systems including:\n", "<ul>", "<li>", "<b>", "Vendors:", "</b>", " NPC Trading system including the option for timed trade processing.", "</li>", "<li>", "<b>", "Dynamic Environment System:", "</b>", " Day/Night lighting cycle, rolling fog system, and color picker menu.", "</li>", "<li>", "<b>", "Quest System and Compass:", "</b>", " Loot driven quests with NPC quest givers, active quest zone editor, and automatic quest tracking by the quest compass.", "</li>", "<li>", "<b>", "Trap System:", "</b>", " Collision based traps using a level based damage system.", "</li>", "<li>", "<b>", "Player Trading:", "</b>", " Giving players the ability to trade kaneva-wide currency with other players.", "</li>", "<li>", "<b>", "Gembox Menu:", "</b>", " Slot-machine style menu shown upon opening a Gembox to roll for a meta currency gem.", "</li>", "<li>", "<b>", "And many more:", "</b>", " Locked Loot Containers, Player Building Zones, Donation Box, Weapon Firing Prototyping, Credit Conversion Menu, bug fixes, tweaks, and optimizations...", "</li>", "</ul>",
+                    "\n### Vendors", "",
+                    "<img img-caption data-caption-hide src='./assets/images/util/kaneva_vendor.png' alt='Timed Vendor' >",
+                    "\n### Quest System", "<div class='inset-image-full'>", "",
+                    "<img src='./assets/images/util/kaneva_quest_giver.png' alt='Quest Giver' >",
+                    "<img src='./assets/images/util/kaneva_quest_compass.png' alt='Quest Compass' >", "</div>"
+                ],
+                "techArr": [
+                    "teamwork", "visualstudio", "sublime", "css3"
+                ],
+                "detailMedia": [{
+                    "type": "image",
+                    "src": "./assets/images/util/kaneva_main_screenshot.png"
+                }]
+            }, {
+                "id": "game-over-ever-after",
+                "thumbImage": "./assets/images/util/GameOverEverAfter.png",
+                "thumbIcon": "http://www.ggjvancouver.com/img/GGJ_2015.png",
+                "client": "Client Name",
+                "title": "Game Over Ever After",
+                "date": "23-25 January 2015",
+                "timestamp": "1.25.2015",
+                "desc": [
+                    "The kingdom is under attack and the hero has fallen. Game over. Or is it? The townspeople have gathered around the fallen hero and now seem determined to finish his quest themselves. Will they be able to finish the story? \n", "<a href='http://globalgamejam.org/2015/games/game-over-ever-after'>", "Visit the Global Game Jam Project Page", "</a>", "\n### Download\n", "<a href='http://ggj.s3.amazonaws.com/games/2015/01/25/1727/GameOverSource.zip'>", "<i class='fa fa-arrow-circle-o-down'>", "</i>", " Source Files \n", "</a>", "<a href='http://ggj.s3.amazonaws.com/games/2015/01/26/1107/GameOver.zip'>", "<i class='fa fa-play-circle-o'>", "</i>", " Executable", "</a>", "\n### About", "Built during the 2015 Global Game Jam, the theme was What Do We Do Now? This jam was a learning experience for our team as none of use had worked with Unreal Engine 4 previously. We studied during the week leading up and jumped right in to experiment with our new skills.", "\n### Contributions", "The team as a whole participated in the design process with much paper prototyping of the mechanics, level layout, and trap scenarios for our minions. ", "\nI spent most of my time in Unreal's new Blueprint system. I picked up these new skills quickly and jumped into developing the traps system, player health system, fire reaction system, and catapult system.", "<div class='inset-image-full'>", "<img src='http://aliwallick.com/game/images/gameOver/screenshot.jpg' alt='Screenshot' >", "<img src='http://i.imgur.com/T2p18c5.png' alt='Blueprint' >", "</div>"
+                ],
+                "techArr": [
+                    "html5", "css3", "jquery"
+                ],
+                "detailMedia": [{
+                    "type": "youtube",
+                    "id": "7JIMwZnURI4"
+                }],
+                "teamArr": [
+                    [
+                        ["dev"],
+                        ["Ashleigh Amrine", "Cody Kicklighter", "Ken Kennison", "Robert Spessard", "Ali Wallick"]
+                    ],
+                    [
+                        ["art"],
+                        ["Leigh Ann Kennison"]
+                    ],
+                    [
+                        ["sound"],
+                        ["Zach Moore"]
+                    ]
+                ]
+            }, {
+                "id": "in-flew-enza",
+                "thumbImage": "http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-58-96/3704.Games-for-health.png",
+                "thumbIcon": "http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-58-96/3704.Games-for-health.png",
+                "client": "CDC Games For Health Jam 2013",
+                "title": "In-flew-enza",
+                "date": "2013",
+                "timestamp": "9.21.2013",
+                "desc": [
+                    "\n### Download\n", "<a href='https://drive.google.com/file/d/0B7xtTJ5xv0PhZ2w0QV9QajZ2c3M/view?usp=sharing'>", "<i class='fa fa-arrow-circle-o-down'>", "</i>", " Source Files", "</a>", "\n### About", "Built during the 2013 CDC Games for Health Jam at SPSU. A virtual reality game utilizing the Oculus Rift to teach the signs of a flu during travel to raise awareness of the spread of illness between destinations. The player acts as a doctor on a flight assigned the task of locating the source of the flu before it spreads to too many passengers. Find the infected using questioning of the passengers and awareness of coughing, sneezing, and general drowsiness among the cabin.", "\n### Contributions", "The entire team as well as a CDC professional contributed to the design. I modeled and textured the entire plane interior as well as programmed the passenger interaction and camera movement.", "<div class='inset-image-full'>", "<img src='./assets/images/util/inflewenza_intro.png' alt='Screenshot' >", "<img src='http://riftmod.com/wp-content/uploads/2013/07/Oculus-logo.jpg' alt='Blueprint' >", "</div>"
+                ],
+                "techArr": [
+                    "git", "travis", "nodejs", "selenium", "sass"
+                ],
+                "detailMedia": [{
+                    "type": "image",
+                    "src": "./assets/images/util/inflewenza_note.png"
+                }],
+                "teamArr": [
+                    [
+                        ["Programmers"],
+                        ["Davon Williams", "Dante Williams", "Mitchell Gordon"]
+                    ],
+                    [
+                        ["Programmers / Artists"],
+                        ["Ashleigh Amrine", "Adrian Kappel"]
+                    ]
+                ]
+            }]
         },
-        {"id":"kaneva","thumbImage":"http://img.informer.com/icons/png/48/3759/3759495.png","thumbIcon":"http://img.informer.com/icons/png/48/3759/3759495.png","client":"Kaneva, LLC","title":"Kaneva","date":"2013","desc":[
-          "<br>","<br>","### About\n","The Virtual World of Kaneva gives players the ability to explore and create a range of virtual worlds containing social and MMO style game systems. Driven on user-generated content, the virtual MMOG Kaneva platform has the potential for building massive worlds with fully scripted game environments.\n","I was a software engineer on the team responsible for building the entire game tools system - from collaboration on design, to building the menus from the artist's compositions, to programming the functionality scripted in Lua on top of the Kaneva platform built in C++.\n","<a href='http://kaneva.com'>", "Visit Kaneva", "</a>", "\n### Contributions", "I have contributed to many menu and game systems including:\n","<ul>","<li>","<b>","Vendors:","</b>"," NPC Trading system including the option for timed trade processing.","</li>","<li>","<b>","Dynamic Environment System:","</b>"," Day/Night lighting cycle, rolling fog system, and color picker menu.","</li>","<li>","<b>","Quest System and Compass:","</b>"," Loot driven quests with NPC quest givers, active quest zone editor, and automatic quest tracking by the quest compass.","</li>","<li>","<b>","Trap System:","</b>"," Collision based traps using a level based damage system.","</li>","<li>","<b>","Player Trading:", "</b>"," Giving players the ability to trade kaneva-wide currency with other players.","</li>","<li>","<b>","Gembox Menu:","</b>"," Slot-machine style menu shown upon opening a Gembox to roll for a meta currency gem.","</li>","<li>","<b>","And many more:","</b>"," Locked Loot Containers, Player Building Zones, Donation Box, Weapon Firing Prototyping, Credit Conversion Menu, bug fixes, tweaks, and optimizations...","</li>","</ul>",
-          "\n### Vendors","",
-          "<img img-caption data-caption-hide src='./assets/images/util/kaneva_vendor.png' alt='Timed Vendor' >",
-          "\n### Quest System","<div class='inset-image-full'>","",
-          "<img src='./assets/images/util/kaneva_quest_giver.png' alt='Quest Giver' >",
-          "<img src='./assets/images/util/kaneva_quest_compass.png' alt='Quest Compass' >","</div>"]
-          ,"techArr":[
-            "teamwork","visualstudio","sublime","css3"] 
-          ,"detailMedia":[
-              {"type":"image","src":"./assets/images/util/kaneva_main_screenshot.png"}]
+        "humans": {
+            "humans": [{
+                "id": "ashleigh",
+                "name": "Ashleigh Amrine",
+                "url": "https://www.google.com/search?q=jane+doe"
+            }, {
+                "id": "rob",
+                "name": "Robert Spessard",
+                "url": "https://www.google.com/search?q=jane+doe"
+            }, {
+                "id": "cody",
+                "name": "Cody Kicklighter",
+                "url": "https://www.google.com/search?q=jane+doe"
+            }, {
+                "id": "ali",
+                "name": "Ali Wallick",
+                "url": "https://www.google.com/search?q=john+doe"
+            }, {
+                "id": "ken",
+                "name": "Ken Kennison",
+                "url": "https://www.google.com/search?q=jane+doe"
+            }, {
+                "id": "leighann",
+                "name": "Leigh Ann Kinnison",
+                "url": "https://www.google.com/search?q=jane+doe"
+            }, {
+                "id": "zach",
+                "name": "Zach Moore",
+                "url": "https://www.google.com/search?q=jane+doe"
+            }],
+            "roles": [{
+                "id": "dev",
+                "name": "Programmers"
+            }, {
+                "id": "art",
+                "name": "Artists"
+            }, {
+                "id": "sound",
+                "name": "Sound Engineers"
+            }, {
+                "id": "design",
+                "name": "Designers"
+            }]
         },
-        {"id":"game-over-ever-after","thumbImage":"./assets/images/util/GameOverEverAfter.png","thumbIcon":"http://www.ggjvancouver.com/img/GGJ_2015.png","client":"Client Name","title":"Game Over Ever After","date":"23-25 January 2015","timestamp":"1.25.2015","desc":[
-            "The kingdom is under attack and the hero has fallen. Game over. Or is it? The townspeople have gathered around the fallen hero and now seem determined to finish his quest themselves. Will they be able to finish the story? \n", "<a href='http://globalgamejam.org/2015/games/game-over-ever-after'>", "Visit the Global Game Jam Project Page", "</a>","\n### Download\n", "<a href='http://ggj.s3.amazonaws.com/games/2015/01/25/1727/GameOverSource.zip'>" ,"<i class='fa fa-arrow-circle-o-down'>","</i>"," Source Files \n", "</a>", "<a href='http://ggj.s3.amazonaws.com/games/2015/01/26/1107/GameOver.zip'>", "<i class='fa fa-play-circle-o'>", "</i>"," Executable", "</a>","\n### About","Built during the 2015 Global Game Jam, the theme was What Do We Do Now? This jam was a learning experience for our team as none of use had worked with Unreal Engine 4 previously. We studied during the week leading up and jumped right in to experiment with our new skills.","\n### Contributions", "The team as a whole participated in the design process with much paper prototyping of the mechanics, level layout, and trap scenarios for our minions. ", "\nI spent most of my time in Unreal's new Blueprint system. I picked up these new skills quickly and jumped into developing the traps system, player health system, fire reaction system, and catapult system.","<div class='inset-image-full'>","<img src='http://aliwallick.com/game/images/gameOver/screenshot.jpg' alt='Screenshot' >","<img src='http://i.imgur.com/T2p18c5.png' alt='Blueprint' >","</div>"]
-          ,"techArr":[
-            "html5","css3","jquery"]
-          ,"detailMedia":[
-            {"type":"youtube","id":"7JIMwZnURI4"}]
-          ,"teamArr":[
-            [["dev"],["Ashleigh Amrine","Cody Kicklighter","Ken Kennison","Robert Spessard","Ali Wallick"]],
-            [["art"],["Leigh Ann Kennison"]],
-            [["sound"],["Zach Moore"]]
-          ]
-        },
-        {"id":"in-flew-enza","thumbImage":"http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-58-96/3704.Games-for-health.png","thumbIcon":"http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-58-96/3704.Games-for-health.png","client":"CDC Games For Health Jam 2013","title":"In-flew-enza","date":"2013","timestamp":"9.21.2013","desc":[
-          "\n### Download\n", "<a href='https://drive.google.com/file/d/0B7xtTJ5xv0PhZ2w0QV9QajZ2c3M/view?usp=sharing'>" ,"<i class='fa fa-arrow-circle-o-down'>","</i>"," Source Files", "</a>","\n### About","Built during the 2013 CDC Games for Health Jam at SPSU. A virtual reality game utilizing the Oculus Rift to teach the signs of a flu during travel to raise awareness of the spread of illness between destinations. The player acts as a doctor on a flight assigned the task of locating the source of the flu before it spreads to too many passengers. Find the infected using questioning of the passengers and awareness of coughing, sneezing, and general drowsiness among the cabin.","\n### Contributions","The entire team as well as a CDC professional contributed to the design. I modeled and textured the entire plane interior as well as programmed the passenger interaction and camera movement.","<div class='inset-image-full'>","<img src='./assets/images/util/inflewenza_intro.png' alt='Screenshot' >","<img src='http://riftmod.com/wp-content/uploads/2013/07/Oculus-logo.jpg' alt='Blueprint' >","</div>"]
-          ,"techArr":[
-            "git","travis","nodejs","selenium","sass"] 
-          ,"detailMedia":[
-            {"type":"image","src":"./assets/images/util/inflewenza_note.png"}]
-          ,"teamArr":[
-            [["Programmers"],["Davon Williams","Dante Williams","Mitchell Gordon"]],
-            [["Programmers / Artists"],["Ashleigh Amrine","Adrian Kappel"]]
-          ]
+        "icons": {
+            "tech": [{
+                "id": "html5",
+                "name": "Unreal Engine 4",
+                "url": "https://www.unrealengine.com/what-is-unreal-engine-4"
+            }, {
+                "id": "css3",
+                "name": "C++",
+                "url": "http://www.cplusplus.com/"
+            }, {
+                "id": "js",
+                "name": "JavaScript",
+                "url": "http://en.wikipedia.org/wiki/JavaScript"
+            }, {
+                "id": "responsive",
+                "name": "Download Source Files",
+                "url": "http://ggj.s3.amazonaws.com/games/2015/01/25/1727/GameOverSource.zip"
+            }, {
+                "id": "jquery",
+                "name": "Subversion",
+                "url": "https://subversion.apache.org/"
+            }, {
+                "id": "jquery-ui",
+                "name": "jQuery UI",
+                "url": "http://jqueryui.com/"
+            }, {
+                "id": "angular",
+                "name": "AngularJS",
+                "url": "http://angularjs.org/"
+            }, {
+                "id": "testacular",
+                "name": "Testacular",
+                "url": "http://vojtajina.github.com/testacular/"
+            }, {
+                "id": "jasmine",
+                "name": "Jasmine",
+                "url": "http://pivotal.github.com/jasmine/"
+            }, {
+                "id": "modernizr",
+                "name": "Modernizr",
+                "url": "http://modernizr.com/"
+            }, {
+                "id": "yeoman",
+                "name": "Yeoman",
+                "url": "http://yeoman.io/"
+            }, {
+                "id": "grunt",
+                "name": "Grunt",
+                "url": "http://gruntjs.com/"
+            }, {
+                "id": "jshint",
+                "name": "JSHint",
+                "url": "http://gruntjs.com/"
+            }, {
+                "id": "bower",
+                "name": "Bower",
+                "url": "https://github.com/twitter/bower"
+            }, {
+                "id": "flash",
+                "name": "Flash",
+                "url": "http://www.adobe.com/products/flash.html"
+            }, {
+                "id": "flashbuilder",
+                "name": "Flash Builder",
+                "url": "http://www.adobe.com/products/flash-builder.html"
+            }, {
+                "id": "actionscript",
+                "name": "Actionscript",
+                "url": "http://en.wikipedia.org/wiki/ActionScript"
+            }, {
+                "id": "gaia",
+                "name": "Gaia Flash Framework",
+                "url": "http://gaiaflashframework.tenderapp.com/"
+            }, {
+                "id": "ios",
+                "name": "iOS",
+                "url": "http://www.apple.com/ios/"
+            }, {
+                "id": "bootstrap",
+                "name": "Bootstrap",
+                "url": "http://twitter.github.com/bootstrap/"
+            }, {
+                "id": "backbone",
+                "name": "Backbone.JS",
+                "url": "http://backbonejs.org/"
+            }, {
+                "id": "raphael",
+                "name": "Raphael.JS",
+                "url": "http://raphaeljs.com/"
+            }, {
+                "id": "net",
+                "name": "Microsoft .NET",
+                "url": "http://www.microsoft.com/net"
+            }, {
+                "id": "mssql",
+                "name": "Microsoft SQL Server",
+                "url": "http://www.microsoft.com/net"
+            }, {
+                "id": "php",
+                "name": "PHP",
+                "url": "http://php.net/"
+            }, {
+                "id": "wordpress",
+                "name": "WordPress",
+                "url": "http://wordpress.org/"
+            }, {
+                "id": "ios",
+                "name": "iOS",
+                "url": "http://www.apple.com/ios/"
+            }, {
+                "id": "ruby",
+                "name": "Ruby",
+                "url": "http://www.ruby-lang.org/"
+            }, {
+                "id": "ror",
+                "name": "Ruby on Rails",
+                "url": "http://rubyonrails.org/"
+            }, {
+                "id": "visualstudio",
+                "name": "Visual Studio",
+                "url": "http://www.microsoft.com/visualstudio/"
+            }, {
+                "id": "sublime",
+                "name": "Sublime",
+                "url": "http://www.sublimetext.com/"
+            }, {
+                "id": "intellij",
+                "name": "IntelliJ",
+                "url": "http://www.jetbrains.com/idea/"
+            }, {
+                "id": "facebook",
+                "name": "Facebook",
+                "url": "https://developers.facebook.com/web/"
+            }, {
+                "id": "git",
+                "name": "GIT",
+                "url": "http://git-scm.com/"
+            }, {
+                "id": "svn",
+                "name": "SVN",
+                "url": "http://subversion.apache.org/"
+            }, {
+                "id": "photoshop",
+                "name": "Photoshop",
+                "url": "http://www.adobe.com/products/photoshop.html"
+            }, {
+                "id": "teamwork",
+                "name": "Lua",
+                "url": "http://www.lua.org/"
+            }, {
+                "id": "analytics",
+                "name": "Analytics"
+            }, {
+                "id": "ms-azure",
+                "name": "MS Azure",
+                "url": "http://www.windowsazure.com"
+            }, {
+                "id": "sass",
+                "name": "Blender",
+                "url": "https://www.blender.org/"
+            }, {
+                "id": "assemble",
+                "name": "Assemble",
+                "url": "http://assemble.io/"
+            }, {
+                "id": "tomcat",
+                "name": "Tomcat",
+                "url": "http://tomcat.apache.org/"
+            }, {
+                "id": "karma",
+                "name": "Karma Runner",
+                "url": "http://tomcat.apache.org/"
+            }, {
+                "id": "protractor",
+                "name": "Protractor",
+                "url": "http://tomcat.apache.org/"
+            }, {
+                "id": "saucelabs",
+                "name": "Sauce Labs",
+                "url": "http://tomcat.apache.org/"
+            }, {
+                "id": "screenflow",
+                "name": "Screenflow",
+                "url": "http://www.telestream.net/screenflow/"
+            }, {
+                "id": "selenium",
+                "name": "Unity 4",
+                "url": "https://unity3d.com/"
+            }, {
+                "id": "travis",
+                "name": "JavaScript",
+                "url": "http://en.wikipedia.org/wiki/JavaScript"
+            }, {
+                "id": "jenkins",
+                "name": "HTML5",
+                "url": "http://http://en.wikipedia.org/wiki/HTML5"
+            }, {
+                "id": "github",
+                "name": "GitHub",
+                "url": "http://github.com/"
+            }, {
+                "id": "nodejs",
+                "name": "C#",
+                "url": "http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29"
+            }, {
+                "id": "assemble",
+                "name": "JavaScript",
+                "url": "http://en.wikipedia.org/wiki/JavaScript"
+            }], //js -90,-108 c# 0, -108 html5 0, -162 unity4 -90,-162
+            "brand": [{
+                "id": "fpo-0",
+                "name": "Lua",
+                "url": "http://www.lua.org/"
+            }, {
+                "id": "fpo-1",
+                "name": "Brand FPO 1",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-2",
+                "name": "Java",
+                "url": "https://www.java.com/en/"
+            }, {
+                "id": "fpo-3",
+                "name": "C++",
+                "url": "http://www.cplusplus.com/"
+            }, {
+                "id": "fpo-4",
+                "name": "C#",
+                "url": "http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29"
+            }, {
+                "id": "fpo-5",
+                "name": "JavaScript",
+                "url": "http://en.wikipedia.org/wiki/JavaScript"
+            }, {
+                "id": "fpo-6",
+                "name": "Brand FPO 6",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-7",
+                "name": "Brand FPO 7",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-8",
+                "name": "Blender",
+                "url": "https://www.blender.org/"
+            }, {
+                "id": "fpo-9",
+                "name": "HTML5",
+                "url": "http://http://en.wikipedia.org/wiki/HTML5"
+            }, {
+                "id": "fpo-10",
+                "name": "Brand FPO 10",
+                "url": "http://google.com"
+            }],
+            "recognition": [{
+                "id": "fpo-0",
+                "name": "Unity 4",
+                "url": "https://unity3d.com/"
+            }, {
+                "id": "fpo-1",
+                "name": "Adobe Photoshop",
+                "url": "http://www.adobe.com/products/photoshop.html"
+            }, {
+                "id": "fpo-2",
+                "name": "Visual Studio",
+                "url": "https://www.visualstudio.com/"
+            }, {
+                "id": "fpo-3",
+                "name": "Unreal Engine 4",
+                "url": "https://www.unrealengine.com/what-is-unreal-engine-4"
+            }, {
+                "id": "fpo-4",
+                "name": "Adobe Illustrator",
+                "url": "http://www.adobe.com/products/illustrator.html"
+            }, {
+                "id": "fpo-5",
+                "name": "Recognition FPO 5",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-6",
+                "name": "Recognition FPO 6",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-7",
+                "name": "Recognition FPO 7",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-8",
+                "name": "Recognition FPO 8",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-9",
+                "name": "Recognition FPO 9",
+                "url": "http://google.com"
+            }],
+            "agency": [{
+                "id": "fpo-0",
+                "name": "Lua",
+                "url": "http://www.lua.org/"
+            }, {
+                "id": "fpo-1",
+                "name": "Brand FPO 1",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-2",
+                "name": "Java",
+                "url": "https://www.java.com/en/"
+            }, {
+                "id": "fpo-3",
+                "name": "C++",
+                "url": "http://www.cplusplus.com/"
+            }, {
+                "id": "fpo-4",
+                "name": "C#",
+                "url": "http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29"
+            }, {
+                "id": "fpo-5",
+                "name": "JavaScript",
+                "url": "http://en.wikipedia.org/wiki/JavaScript"
+            }, {
+                "id": "fpo-6",
+                "name": "Brand FPO 6",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-7",
+                "name": "Brand FPO 7",
+                "url": "http://google.com"
+            }, {
+                "id": "fpo-8",
+                "name": "Blender",
+                "url": "https://www.blender.org/"
+            }, {
+                "id": "fpo-9",
+                "name": "HTML5",
+                "url": "http://http://en.wikipedia.org/wiki/HTML5"
+            }, {
+                "id": "fpo-10",
+                "name": "Brand FPO 10",
+                "url": "http://google.com"
+            }]
         }
-      ]
+
+    };
+    </script>
+    <script>
+    /*
+         CSS Browser Selector 1.0
+         Originally written by Rafael Lima (http://rafael.adm.br)
+         http://rafael.adm.br/css_browser_selector
+         License: http://creativecommons.org/licenses/by/2.5/
+
+         Co-maintained by:
+         https://github.com/ridjohansen/css_browser_selector
+         https://github.com/wbruno/css_browser_selector
+
+         */
+    var uaInfo = {
+        ua: "",
+        is: function(t) {
+            return RegExp(t, "i").test(uaInfo.ua)
+        },
+        version: function(p, n) {
+            n = n.replace(".", "_");
+            var i = n.indexOf("_"),
+                ver = "";
+            while (i > 0) {
+                ver += " " + p + n.substring(0, i);
+                i = n.indexOf("_", i + 1)
+            }
+            ver += " " + p + n;
+            return ver
+        },
+        getBrowser: function() {
+            var g = "gecko",
+                w = "webkit",
+                c = "chrome",
+                f = "firefox",
+                s = "safari",
+                o = "opera",
+                a = "android",
+                bb = "blackberry",
+                dv = "device_",
+                ua = uaInfo.ua,
+                is = uaInfo.is;
+            return [(!(/opera|webtv/i.test(ua)) && /msie\s(\d+)/.test(ua)) ? ("ie ie" + (/trident\/4\.0/.test(ua) ? "8" : RegExp.$1)) : is("firefox/") ? g + " " + f + (/firefox\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua) ? " " + f + RegExp.$2 + " " + f + RegExp.$2 + "_" + RegExp.$4 : "") : is("gecko/") ? g : is("opera") ? o + (/version\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua) ? " " + o + RegExp.$2 + " " + o + RegExp.$2 + "_" + RegExp.$4 : (/opera(\s|\/)(\d+)\.(\d+)/.test(ua) ? " " + o + RegExp.$2 + " " + o + RegExp.$2 + "_" + RegExp.$3 : "")) : is("konqueror") ? "konqueror" : is("blackberry") ? (bb + (/Version\/(\d+)(\.(\d+)+)/i.test(ua) ? " " + bb + RegExp.$1 + " " + bb + RegExp.$1 + RegExp.$2.replace(".", "_") : (/Blackberry ?(([0-9]+)([a-z]?))[\/|;]/gi.test(ua) ? " " + bb + RegExp.$2 + (RegExp.$3 ? " " + bb + RegExp.$2 + RegExp.$3 : "") : ""))) : is("android") ? (a + (/Version\/(\d+)(\.(\d+))+/i.test(ua) ? " " + a + RegExp.$1 + " " + a + RegExp.$1 + RegExp.$2.replace(".", "_") : "") + (/Android (.+); (.+) Build/i.test(ua) ? " " + dv + ((RegExp.$2).replace(/ /g, "_")).replace(/-/g, "_") : "")) : is("chrome") ? w + " " + c + (/chrome\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua) ? " " + c + RegExp.$2 + ((RegExp.$4 > 0) ? " " + c + RegExp.$2 + "_" + RegExp.$4 : "") : "") : is("iron") ? w + " iron" : is("applewebkit/") ? (w + " " + s + (/version\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua) ? " " + s + RegExp.$2 + " " + s + RegExp.$2 + RegExp.$3.replace(".", "_") : (/ Safari\/(\d+)/i.test(ua) ? ((RegExp.$1 == "419" || RegExp.$1 == "417" || RegExp.$1 == "416" || RegExp.$1 == "412") ? " " + s + "2_0" : RegExp.$1 == "312" ? " " + s + "1_3" : RegExp.$1 == "125" ? " " + s + "1_2" : RegExp.$1 == "85" ? " " + s + "1_0" : "") : ""))) : is("mozilla/") ? g : ""]
+        },
+        getPlatform: function() {
+            var ua = uaInfo.ua,
+                version = uaInfo.version,
+                is = uaInfo.is;
+            return [is("j2me") ? "j2me" : is("ipad|ipod|iphone") ? ((/CPU( iPhone)? OS (\d+[_|\.]\d+([_|\.]\d+)*)/i.test(ua) ? "ios" + version("ios", RegExp.$2) : "") + " " + (/(ip(ad|od|hone))/gi.test(ua) ? RegExp.$1 : "")) : is("playbook") ? "playbook" : is("kindle|silk") ? "kindle" : is("playbook") ? "playbook" : is("mac") ? "mac" + (/mac os x ((\d+)[.|_](\d+))/.test(ua) ? (" mac" + (RegExp.$2) + " mac" + (RegExp.$1).replace(".", "_")) : "") : is("win") ? "win" + (is("windows nt 6.2") ? " win8" : is("windows nt 6.1") ? " win7" : is("windows nt 6.0") ? " vista" : is("windows nt 5.2") || is("windows nt 5.1") ? " win_xp" : is("windows nt 5.0") ? " win_2k" : is("windows nt 4.0") || is("WinNT4.0") ? " win_nt" : "") : is("freebsd") ? "freebsd" : is("x11|linux") ? "linux" : ""]
+        },
+        getMobile: function() {
+            var is = uaInfo.is;
+            return [is("android|mobi|mobile|j2me|iphone|ipod|ipad|blackberry|playbook|kindle|silk") ? "mobile" : ""]
+        },
+        getIpadApp: function() {
+            var is = uaInfo.is;
+            return [(is("ipad|iphone|ipod") && !is("safari")) ? "ipad_app" : ""]
+        },
+        getLang: function() {
+            var ua = uaInfo.ua;
+            return [/[; |\[](([a-z]{2})(\-[a-z]{2})?)[)|;|\]]/i.test(ua) ? ("lang_" + RegExp.$2).replace("-", "_") + (RegExp.$3 != "" ? (" lang_" + RegExp.$1).replace("-", "_") : "") : ""]
+        }
+    };
+    var screenInfo = {
+        width: (window.outerWidth || html.clientWidth) - 15,
+        height: window.outerHeight || html.clientHeight,
+        screens: [0, 768, 980, 1200],
+        screenSize: function() {
+            screenInfo.width = (window.outerWidth || html.clientWidth) - 15;
+            screenInfo.height = window.outerHeight || html.clientHeight;
+            var screens = screenInfo.screens,
+                i = screens.length,
+                arr = [],
+                maxw, minw;
+            while (i--) {
+                if (screenInfo.width >= screens[i]) {
+                    if (i) {
+                        arr.push("minw_" + screens[(i)])
+                    }
+                    if (i <= 2) {
+                        arr.push("maxw_" + (screens[(i) + 1] - 1))
+                    }
+                    break
+                }
+            }
+            return arr
+        },
+        getOrientation: function() {
+            return screenInfo.width < screenInfo.height ? ["orientation_portrait"] : ["orientation_landscape"]
+        },
+        getInfo: function() {
+            var arr = [];
+            arr = arr.concat(screenInfo.screenSize());
+            arr = arr.concat(screenInfo.getOrientation());
+            return arr
+        },
+        getPixelRatio: function() {
+            var arr = [],
+                pixelRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
+            if (pixelRatio > 1) {
+                arr.push("retina_" + parseInt(pixelRatio) + "x");
+                arr.push("hidpi")
+            } else {
+                arr.push("no-hidpi")
+            }
+            return arr
+        }
+    };
+    var dataUriInfo = {
+        data: new Image(),
+        div: document.createElement("div"),
+        isIeLessThan9: false,
+        getImg: function() {
+            dataUriInfo.data.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+            dataUriInfo.div.innerHTML = "<!--[if lt IE 9]><i></i><![endif]-->";
+            dataUriInfo.isIeLessThan9 = dataUriInfo.div.getElementsByTagName("i").length == 1;
+            return dataUriInfo.data
+        },
+        checkSupport: function() {
+            if (dataUriInfo.data.width != 1 || dataUriInfo.data.height != 1 || dataUriInfo.isIeLessThan9) {
+                return ["no-datauri"]
+            } else {
+                return ["datauri"]
+            }
+        }
+    };
+
+    function css_browser_selector(u, ns) {
+        var html = document.documentElement,
+            b = [];
+        ns = ns ? ns : "";
+        uaInfo.ua = u.toLowerCase();
+        b = b.concat(uaInfo.getBrowser());
+        b = b.concat(uaInfo.getPlatform());
+        b = b.concat(uaInfo.getMobile());
+        b = b.concat(uaInfo.getIpadApp());
+        b = b.concat(uaInfo.getLang());
+        b = b.concat(["js"]);
+        b = b.concat(screenInfo.getPixelRatio());
+        b = b.concat(screenInfo.getInfo());
+        var updateScreen = function() {
+            html.className = html.className.replace(/ ?orientation_\w+/g, "").replace(/ [min|max|cl]+[w|h]_\d+/g, "");
+            html.className = html.className + " " + screenInfo.getInfo().join(" ")
+        };
+        window.addEventListener("resize", updateScreen);
+        window.addEventListener("orientationchange", updateScreen);
+        var data = dataUriInfo.getImg();
+        data.onload = data.onerror = function() {
+            html.className += " " + dataUriInfo.checkSupport().join(" ")
+        };
+        b = b.filter(function(e) {
+            return e
+        });
+        b[0] = ns ? ns + b[0] : b[0];
+        html.className = b.join(" " + ns);
+        return html.className
     }
-    ,"humans": {
-      "humans":[
-        {"id":"ashleigh","name":"Ashleigh Amrine","url":"https://www.google.com/search?q=jane+doe"},
-        {"id":"rob","name":"Robert Spessard","url":"https://www.google.com/search?q=jane+doe"},
-        {"id":"cody","name":"Cody Kicklighter","url":"https://www.google.com/search?q=jane+doe"},
-        {"id":"ali","name":"Ali Wallick","url":"https://www.google.com/search?q=john+doe"},
-        {"id":"ken","name":"Ken Kennison","url":"https://www.google.com/search?q=jane+doe"},
-        {"id":"leighann","name":"Leigh Ann Kinnison","url":"https://www.google.com/search?q=jane+doe"},
-        {"id":"zach","name":"Zach Moore","url":"https://www.google.com/search?q=jane+doe"}
-      ],
-      "roles":[
-        {"id":"dev","name":"Programmers"},
-        {"id":"art","name":"Artists"},
-        {"id":"sound","name":"Sound Engineers"},
-        {"id":"design","name":"Designers"}
-      ]
-    }
-    ,"icons": {
-      "tech":[
-        {"id":"html5","name":"Unreal Engine 4","url":"https://www.unrealengine.com/what-is-unreal-engine-4"},
-        {"id":"css3","name":"C++","url":"http://www.cplusplus.com/"},
-        {"id":"js","name":"JavaScript","url":"http://en.wikipedia.org/wiki/JavaScript"},
-        {"id":"responsive","name":"Download Source Files","url":"http://ggj.s3.amazonaws.com/games/2015/01/25/1727/GameOverSource.zip"},
-        {"id":"jquery","name":"Subversion","url":"https://subversion.apache.org/"},
-        {"id":"jquery-ui","name":"jQuery UI","url":"http://jqueryui.com/"},
-        {"id":"angular","name":"AngularJS","url":"http://angularjs.org/"},
-        {"id":"testacular","name":"Testacular","url":"http://vojtajina.github.com/testacular/"},
-        {"id":"jasmine","name":"Jasmine","url":"http://pivotal.github.com/jasmine/"},
-        {"id":"modernizr","name":"Modernizr","url":"http://modernizr.com/"},
-        {"id":"yeoman","name":"Yeoman","url":"http://yeoman.io/"},
-        {"id":"grunt","name":"Grunt","url":"http://gruntjs.com/"},
-        {"id":"jshint","name":"JSHint","url":"http://gruntjs.com/"},
-        {"id":"bower","name":"Bower","url":"https://github.com/twitter/bower"},
-        {"id":"flash","name":"Flash","url":"http://www.adobe.com/products/flash.html"},
-        {"id":"flashbuilder","name":"Flash Builder","url":"http://www.adobe.com/products/flash-builder.html"},
-        {"id":"actionscript","name":"Actionscript","url":"http://en.wikipedia.org/wiki/ActionScript"},
-        {"id":"gaia","name":"Gaia Flash Framework","url":"http://gaiaflashframework.tenderapp.com/"},
-        {"id":"ios","name":"iOS","url":"http://www.apple.com/ios/"},
-        {"id":"bootstrap","name":"Bootstrap","url":"http://twitter.github.com/bootstrap/"},
-        {"id":"backbone","name":"Backbone.JS","url":"http://backbonejs.org/"},
-        {"id":"raphael","name":"Raphael.JS","url":"http://raphaeljs.com/"},
-        {"id":"net","name":"Microsoft .NET","url":"http://www.microsoft.com/net"},
-        {"id":"mssql","name":"Microsoft SQL Server","url":"http://www.microsoft.com/net"},
-        {"id":"php","name":"PHP","url":"http://php.net/"},
-        {"id":"wordpress","name":"WordPress","url":"http://wordpress.org/"},
-        {"id":"ios","name":"iOS","url":"http://www.apple.com/ios/"},
-        {"id":"ruby","name":"Ruby","url":"http://www.ruby-lang.org/"},
-        {"id":"ror","name":"Ruby on Rails","url":"http://rubyonrails.org/"},
-        {"id":"visualstudio","name":"Visual Studio","url":"http://www.microsoft.com/visualstudio/"},
-        {"id":"sublime","name":"Sublime","url":"http://www.sublimetext.com/"},
-        {"id":"intellij","name":"IntelliJ","url":"http://www.jetbrains.com/idea/"},
-        {"id":"facebook","name":"Facebook","url":"https://developers.facebook.com/web/"},
-        {"id":"git","name":"GIT","url":"http://git-scm.com/"},
-        {"id":"svn","name":"SVN","url":"http://subversion.apache.org/"},
-        {"id":"photoshop","name":"Photoshop","url":"http://www.adobe.com/products/photoshop.html"},
-        {"id":"teamwork","name":"Lua","url":"http://www.lua.org/"},
-        {"id":"analytics","name":"Analytics"},
-        {"id":"ms-azure","name":"MS Azure","url":"http://www.windowsazure.com"},
-        {"id":"sass","name":"Blender","url":"https://www.blender.org/"},
-        {"id":"assemble","name":"Assemble","url":"http://assemble.io/"},
-        {"id":"tomcat","name":"Tomcat","url":"http://tomcat.apache.org/"},
-        {"id":"karma","name":"Karma Runner","url":"http://tomcat.apache.org/"},
-        {"id":"protractor","name":"Protractor","url":"http://tomcat.apache.org/"},
-        {"id":"saucelabs","name":"Sauce Labs","url":"http://tomcat.apache.org/"},
-        {"id":"screenflow","name":"Screenflow","url":"http://www.telestream.net/screenflow/"},
-        {"id":"selenium","name":"Unity 4","url":"https://unity3d.com/"},
-        {"id":"travis","name":"JavaScript","url":"http://en.wikipedia.org/wiki/JavaScript"},
-        {"id":"jenkins","name":"HTML5","url":"http://http://en.wikipedia.org/wiki/HTML5"},
-        {"id":"github","name":"GitHub","url":"http://github.com/"},
-        {"id":"nodejs","name":"C#","url":"http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29"},
-        {"id":"assemble","name":"JavaScript","url":"http://en.wikipedia.org/wiki/JavaScript"}
-      ],//js -90,-108 c# 0, -108 html5 0, -162 unity4 -90,-162
-      "brand":[
-        {"id":"fpo-0","name":"Lua","url":"http://www.lua.org/"},
-        {"id":"fpo-1","name":"Brand FPO 1","url":"http://google.com"},
-        {"id":"fpo-2","name":"Java","url":"https://www.java.com/en/"},
-        {"id":"fpo-3","name":"C++","url":"http://www.cplusplus.com/"},
-        {"id":"fpo-4","name":"C#","url":"http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29"},
-        {"id":"fpo-5","name":"JavaScript","url":"http://en.wikipedia.org/wiki/JavaScript"},
-        {"id":"fpo-6","name":"Brand FPO 6","url":"http://google.com"},
-        {"id":"fpo-7","name":"Brand FPO 7","url":"http://google.com"},
-        {"id":"fpo-8","name":"Blender","url":"https://www.blender.org/"},
-        {"id":"fpo-9","name":"HTML5","url":"http://http://en.wikipedia.org/wiki/HTML5"},
-        {"id":"fpo-10","name":"Brand FPO 10","url":"http://google.com"}
-      ],
-      "recognition":[
-        {"id":"fpo-0","name":"Unity 4","url":"https://unity3d.com/"},
-        {"id":"fpo-1","name":"Adobe Photoshop","url":"http://www.adobe.com/products/photoshop.html"},
-        {"id":"fpo-2","name":"Visual Studio","url":"https://www.visualstudio.com/"},
-        {"id":"fpo-3","name":"Unreal Engine 4","url":"https://www.unrealengine.com/what-is-unreal-engine-4"},
-        {"id":"fpo-4","name":"Adobe Illustrator","url":"http://www.adobe.com/products/illustrator.html"},
-        {"id":"fpo-5","name":"Recognition FPO 5","url":"http://google.com"},
-        {"id":"fpo-6","name":"Recognition FPO 6","url":"http://google.com"},
-        {"id":"fpo-7","name":"Recognition FPO 7","url":"http://google.com"},
-        {"id":"fpo-8","name":"Recognition FPO 8","url":"http://google.com"},
-        {"id":"fpo-9","name":"Recognition FPO 9","url":"http://google.com"}
-      ],
-      "agency":[
-        {"id":"fpo-0","name":"Lua","url":"http://www.lua.org/"},
-        {"id":"fpo-1","name":"Brand FPO 1","url":"http://google.com"},
-        {"id":"fpo-2","name":"Java","url":"https://www.java.com/en/"},
-        {"id":"fpo-3","name":"C++","url":"http://www.cplusplus.com/"},
-        {"id":"fpo-4","name":"C#","url":"http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29"},
-        {"id":"fpo-5","name":"JavaScript","url":"http://en.wikipedia.org/wiki/JavaScript"},
-        {"id":"fpo-6","name":"Brand FPO 6","url":"http://google.com"},
-        {"id":"fpo-7","name":"Brand FPO 7","url":"http://google.com"},
-        {"id":"fpo-8","name":"Blender","url":"https://www.blender.org/"},
-        {"id":"fpo-9","name":"HTML5","url":"http://http://en.wikipedia.org/wiki/HTML5"},
-        {"id":"fpo-10","name":"Brand FPO 10","url":"http://google.com"}
-      ]
-    }
-    
-  };</script><script>/*
- CSS Browser Selector 1.0
- Originally written by Rafael Lima (http://rafael.adm.br)
- http://rafael.adm.br/css_browser_selector
- License: http://creativecommons.org/licenses/by/2.5/
+    var css_browser_selector_ns = css_browser_selector_ns || "";
+    css_browser_selector(navigator.userAgent, css_browser_selector_ns);
+    </script>
+    <script src="./scripts/frontend_libs.min.js"></script>
+    <script src="./scripts/frontend_bottom_inc.min.js"></script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
- Co-maintained by:
- https://github.com/ridjohansen/css_browser_selector
- https://github.com/wbruno/css_browser_selector
+    ga('create', 'UA-1000000-1', 'ashleighamrine.me');
+    ga('send', 'pageview');
+    </script>
+</body>
 
- */
- var uaInfo={ua:"",is:function(t){return RegExp(t,"i").test(uaInfo.ua)},version:function(p,n){n=n.replace(".","_");var i=n.indexOf("_"),ver="";while(i>0){ver+=" "+p+n.substring(0,i);i=n.indexOf("_",i+1)}ver+=" "+p+n;return ver},getBrowser:function(){var g="gecko",w="webkit",c="chrome",f="firefox",s="safari",o="opera",a="android",bb="blackberry",dv="device_",ua=uaInfo.ua,is=uaInfo.is;return[(!(/opera|webtv/i.test(ua))&&/msie\s(\d+)/.test(ua))?("ie ie"+(/trident\/4\.0/.test(ua)?"8":RegExp.$1)):is("firefox/")?g+" "+f+(/firefox\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)?" "+f+RegExp.$2+" "+f+RegExp.$2+"_"+RegExp.$4:""):is("gecko/")?g:is("opera")?o+(/version\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)?" "+o+RegExp.$2+" "+o+RegExp.$2+"_"+RegExp.$4:(/opera(\s|\/)(\d+)\.(\d+)/.test(ua)?" "+o+RegExp.$2+" "+o+RegExp.$2+"_"+RegExp.$3:"")):is("konqueror")?"konqueror":is("blackberry")?(bb+(/Version\/(\d+)(\.(\d+)+)/i.test(ua)?" "+bb+RegExp.$1+" "+bb+RegExp.$1+RegExp.$2.replace(".","_"):(/Blackberry ?(([0-9]+)([a-z]?))[\/|;]/gi.test(ua)?" "+bb+RegExp.$2+(RegExp.$3?" "+bb+RegExp.$2+RegExp.$3:""):""))):is("android")?(a+(/Version\/(\d+)(\.(\d+))+/i.test(ua)?" "+a+RegExp.$1+" "+a+RegExp.$1+RegExp.$2.replace(".","_"):"")+(/Android (.+); (.+) Build/i.test(ua)?" "+dv+((RegExp.$2).replace(/ /g,"_")).replace(/-/g,"_"):"")):is("chrome")?w+" "+c+(/chrome\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)?" "+c+RegExp.$2+((RegExp.$4>0)?" "+c+RegExp.$2+"_"+RegExp.$4:""):""):is("iron")?w+" iron":is("applewebkit/")?(w+" "+s+(/version\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)?" "+s+RegExp.$2+" "+s+RegExp.$2+RegExp.$3.replace(".","_"):(/ Safari\/(\d+)/i.test(ua)?((RegExp.$1=="419"||RegExp.$1=="417"||RegExp.$1=="416"||RegExp.$1=="412")?" "+s+"2_0":RegExp.$1=="312"?" "+s+"1_3":RegExp.$1=="125"?" "+s+"1_2":RegExp.$1=="85"?" "+s+"1_0":""):""))):is("mozilla/")?g:""]},getPlatform:function(){var ua=uaInfo.ua,version=uaInfo.version,is=uaInfo.is;return[is("j2me")?"j2me":is("ipad|ipod|iphone")?((/CPU( iPhone)? OS (\d+[_|\.]\d+([_|\.]\d+)*)/i.test(ua)?"ios"+version("ios",RegExp.$2):"")+" "+(/(ip(ad|od|hone))/gi.test(ua)?RegExp.$1:"")):is("playbook")?"playbook":is("kindle|silk")?"kindle":is("playbook")?"playbook":is("mac")?"mac"+(/mac os x ((\d+)[.|_](\d+))/.test(ua)?(" mac"+(RegExp.$2)+" mac"+(RegExp.$1).replace(".","_")):""):is("win")?"win"+(is("windows nt 6.2")?" win8":is("windows nt 6.1")?" win7":is("windows nt 6.0")?" vista":is("windows nt 5.2")||is("windows nt 5.1")?" win_xp":is("windows nt 5.0")?" win_2k":is("windows nt 4.0")||is("WinNT4.0")?" win_nt":""):is("freebsd")?"freebsd":is("x11|linux")?"linux":""]},getMobile:function(){var is=uaInfo.is;return[is("android|mobi|mobile|j2me|iphone|ipod|ipad|blackberry|playbook|kindle|silk")?"mobile":""]},getIpadApp:function(){var is=uaInfo.is;return[(is("ipad|iphone|ipod")&&!is("safari"))?"ipad_app":""]},getLang:function(){var ua=uaInfo.ua;return[/[; |\[](([a-z]{2})(\-[a-z]{2})?)[)|;|\]]/i.test(ua)?("lang_"+RegExp.$2).replace("-","_")+(RegExp.$3!=""?(" lang_"+RegExp.$1).replace("-","_"):""):""]}};var screenInfo={width:(window.outerWidth||html.clientWidth)-15,height:window.outerHeight||html.clientHeight,screens:[0,768,980,1200],screenSize:function(){screenInfo.width=(window.outerWidth||html.clientWidth)-15;screenInfo.height=window.outerHeight||html.clientHeight;var screens=screenInfo.screens,i=screens.length,arr=[],maxw,minw;while(i--){if(screenInfo.width>=screens[i]){if(i){arr.push("minw_"+screens[(i)])}if(i<=2){arr.push("maxw_"+(screens[(i)+1]-1))}break}}return arr},getOrientation:function(){return screenInfo.width<screenInfo.height?["orientation_portrait"]:["orientation_landscape"]},getInfo:function(){var arr=[];arr=arr.concat(screenInfo.screenSize());arr=arr.concat(screenInfo.getOrientation());return arr},getPixelRatio:function(){var arr=[],pixelRatio=window.devicePixelRatio?window.devicePixelRatio:1;if(pixelRatio>1){arr.push("retina_"+parseInt(pixelRatio)+"x");arr.push("hidpi")}else{arr.push("no-hidpi")}return arr}};var dataUriInfo={data:new Image(),div:document.createElement("div"),isIeLessThan9:false,getImg:function(){dataUriInfo.data.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";dataUriInfo.div.innerHTML="<!--[if lt IE 9]><i></i><![endif]-->";dataUriInfo.isIeLessThan9=dataUriInfo.div.getElementsByTagName("i").length==1;return dataUriInfo.data},checkSupport:function(){if(dataUriInfo.data.width!=1||dataUriInfo.data.height!=1||dataUriInfo.isIeLessThan9){return["no-datauri"]}else{return["datauri"]}}};function css_browser_selector(u,ns){var html=document.documentElement,b=[];ns=ns?ns:"";uaInfo.ua=u.toLowerCase();b=b.concat(uaInfo.getBrowser());b=b.concat(uaInfo.getPlatform());b=b.concat(uaInfo.getMobile());b=b.concat(uaInfo.getIpadApp());b=b.concat(uaInfo.getLang());b=b.concat(["js"]);b=b.concat(screenInfo.getPixelRatio());b=b.concat(screenInfo.getInfo());var updateScreen=function(){html.className=html.className.replace(/ ?orientation_\w+/g,"").replace(/ [min|max|cl]+[w|h]_\d+/g,"");html.className=html.className+" "+screenInfo.getInfo().join(" ")};window.addEventListener("resize",updateScreen);window.addEventListener("orientationchange",updateScreen);var data=dataUriInfo.getImg();data.onload=data.onerror=function(){html.className+=" "+dataUriInfo.checkSupport().join(" ")};b=b.filter(function(e){return e});b[0]=ns?ns+b[0]:b[0];html.className=b.join(" "+ns);return html.className}var css_browser_selector_ns=css_browser_selector_ns||"";css_browser_selector(navigator.userAgent,css_browser_selector_ns);</script><script src="./scripts/frontend_libs.min.js"></script><script src="./scripts/frontend_bottom_inc.min.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-1000000-1', 'ashleighamrine.me');
-ga('send', 'pageview');</script></body></html>
-
-
+</html>

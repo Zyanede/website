@@ -1,0 +1,307 @@
+@keyframes toInactive {
+    from {
+        transform: scale(1.1);
+        opacity: 1;
+        box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+    }
+    to {
+        transform: scale(1);
+        box-shadow: rgba(0, 0, 0, 0.8) 0 0 20px;
+        opacity: .85;
+    }
+}
+
+@keyframes toActive {
+    from {
+        transform: scale(1);
+        opacity: .85;
+        box-shadow: rgba(0, 0, 0, 0.8) 0 0 20px;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+        box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+    }
+}
+
+@keyframes toInactiveNoBox {
+    from {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1);
+        opacity: .85;
+    }
+}
+
+@keyframes toActiveNoBox {
+    from {
+        transform: scale(1);
+        opacity: .85;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        bottom: 100%;
+    }
+}
+
+section {
+    background-color: rgba(0, 0, 0, .35);
+    color: white;
+    font-size: 2vh;
+    height: 100vh;
+    font-family: 'PT Serif', serif;
+}
+
+.top {
+    background: url("https://www.savannahstate.edu/academic-affairs/images/thailand_pic.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.fixed-background {
+    background-attachment: fixed;
+}
+
+.cover {
+    height: 100%;
+    width: 100%;
+}
+
+.center-column {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-row {
+    display: table;
+    table-layout: fixed;
+}
+
+.sans-narrow {
+    text-transform: uppercase;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: 700;
+}
+
+.top .header {
+    height: 100%;
+    color: white;
+    font-size: 15vh;
+    text-shadow: 2px 2px rgba(10, 10, 10, .55);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.top .header .sub {
+    color: white;
+    font-size: 3vh;
+    text-shadow: 1px 1px rgba(10, 10, 10, .55);
+    font-family: 'PT Serif', serif;
+    text-transform: capitalize;
+}
+
+.sub-section .header {
+    color: white;
+    font-size: 4vh;
+}
+
+.sub-section .sub-header {
+    color: white;
+    font-size: 2vh;
+}
+
+.locations {
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.darker {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.icon {
+    display: block;
+    height: 15vh;
+    width: 15vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.icon-large {
+    display: block;
+    height: 27vw;
+    width: 27vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.header.icon-large {
+    line-height: 20vw;
+}
+
+.strip {
+    width: 100%;
+    height: 100%;
+}
+
+.locations .icon {
+    margin: 1.5vw;
+    background-color: 0.5;
+    animation: toInactive .2s ease-out both;
+}
+
+.locations .icon:after {
+    pointer-events: none;
+    position: fixed;
+    bottom: 80%;
+    left: 0;
+    width: 100%;
+    height: 4vh;
+    content: '';
+    color: white;
+    opacity: 0;
+    font-size: 3vh;
+}
+
+.locations .icon:hover:after {
+    animation: fadeIn .2s ease-out both;
+}
+
+.locations .icon:hover {
+    animation: toActive .2s ease-out both;
+}
+
+.bangkok {
+    background-image: url("https://pix6.agoda.net/city/9395/9395-7x3.jpg");
+    background-position: left;
+    background-size: cover;
+}
+
+#bangkok {
+    background-image: url("http://drwallpaper.com/wp-content/uploads/2016/01/thailand_bangkok_wallpaper_hd_facebook_cover5.jpg");
+    background-size: cover;
+}
+
+.locations .icon.bangkok:after {
+    content: 'Bangkok';
+}
+
+.chiang-mai {
+    background-image: url("http://www.unitefl.com/wp-content/uploads/2014/06/chiang-mai-31.jpg");
+    background-position: left;
+    background-size: cover;
+}
+
+#chiang_mai {
+    background-image: url("https://lonelyplanetimages.imgix.net/a/g/hi/t/cb3db4b94cdc8a8fff74e2fac7cd6cb8-chiang-mai.jpg");
+    background-size: cover;
+}
+
+.locations .icon.chiang-mai:after {
+    content: 'Chiang Mai';
+}
+
+.krabi {
+    background-image: url("https://homeiswhereyourbagis.com/wp-content/uploads/2016/03/Krabi-Island-Hopping-Koh-Poda.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#krabi {
+    background-image: url("http://airporter.co.uk/wp-content/uploads/2015/01/ao-nang.jpg");
+    background-size: cover;
+}
+
+.locations .icon.krabi:after {
+    content: 'Krabi';
+}
+
+.sub-section {
+    display: table-cell;
+    width: 33%;
+    vertical-align: middle;
+    padding: 2vw;
+}
+
+.section iframe {
+    height: 100vh;
+}
+
+.nav-bar {
+    position: fixed;
+    bottom: 0;
+}
+
+a.timeline {
+    position: fixed;
+    left: 2vh;
+    top: 2vh;
+    animation: toInactiveNoBox .2s ease-out both;
+}
+
+a.timeline:hover {
+    animation: toActiveNoBox .2s ease-out both;
+}
+
+a.timeline:after {
+    pointer-events: none;
+    content: 'Timeline' !important;
+    position: fixed;
+    left: -.5vh;
+    top: 110%;
+    width: 100%;
+    height: 4vh;
+    color: white;
+    opacity: 0;
+    text-transform: uppercase;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 3vh;
+}
+
+a.timeline:hover:after {
+    animation: fadeIn .2s ease-out both;
+}
+
+a.timeline .countdown {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    font-size: 2.5vh;
+    text-transform: uppercase;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: 700;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    text-align: center;
+    background-color: #333;
+    margin: 0;
+}
