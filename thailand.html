@@ -44,6 +44,65 @@
             // locations.style.transform = transformValue;
         }, false);
 
+        // Trip JSON
+        $.getJSON("https://spreadsheets.google.com/feeds/list/1y4pQRUZLx1yKyORj8nKNLTDXe1EbY0FlmmiYUWJus4g/od6/public/values?alt=json", function(data) {
+            var tripData = {
+                bangkok: {
+                    stay: [],
+                    visit: []
+                },
+                chiangmai: {
+                    stay: [],
+                    visit: []
+                },
+                krabi: {
+                    stay: [],
+                    visit: []
+                }
+            };
+
+            var bangkokSection = document.getElementById('bangkok');
+            var chiangmaiSection = document.getElementById('chiang_mai');
+            var krabiSection = document.getElementById('krabi');
+
+            for (var idx = 0; idx < data.feed.entry.length; ++idx) {
+                var entry = data.feed.entry[idx];
+
+                if (entry['gsx$bangkokstay']['$t'] != "") {
+                    tripData.bangkok.stay[idx] = entry['gsx$bangkokstay']['$t'];
+                    bangkokSection.querySelector('.stay').innerHTML += '<li>' + tripData.bangkok.stay[idx] + '</li>';
+                }
+
+                if (entry['gsx$bangkokvisit']['$t'] != "") {
+                    tripData.bangkok.visit[idx] = entry['gsx$bangkokvisit']['$t'];
+                    bangkokSection.querySelector('.explore').innerHTML += '<li>' + tripData.bangkok.visit[idx] + '</li>';
+                }
+
+                if (entry['gsx$chiangmaistay']['$t'] != "") {
+                    tripData.chiangmai.stay[idx] = entry['gsx$chiangmaistay']['$t'];
+                    chiangmaiSection.querySelector('.stay').innerHTML += '<li>' + tripData.chiangmai.stay[idx] + '</li>';
+                }
+
+                if (entry['gsx$chiangmaivisit']['$t'] != "") {
+                    tripData.chiangmai.visit[idx] = entry['gsx$chiangmaivisit']['$t'];
+                    chiangmaiSection.querySelector('.explore').innerHTML += '<li>' + tripData.chiangmai.visit[idx] + '</li>';
+                }
+
+                if (entry['gsx$krabistay']['$t'] != "") {
+                    tripData.krabi.stay[idx] = entry['gsx$krabistay']['$t'];
+                    krabiSection.querySelector('.stay').innerHTML += '<li>' + tripData.krabi.stay[idx] + '</li>';
+                }
+
+                if (entry['gsx$krabivisit']['$t'] != "") {
+                    tripData.krabi.visit[idx] = entry['gsx$krabivisit']['$t'];
+                    krabiSection.querySelector('.explore').innerHTML += '<li>' + tripData.krabi.visit[idx] + '</li>';
+                }
+
+            }
+
+            console.log('data:', tripData);
+        });
+
     }, false);
     </script>
 </head>
@@ -69,45 +128,50 @@
     <section id="bangkok">
         <div class="center-row cover darker">
             <div class="sub-section">
-                <div class="sub-header sans-narrow">Stay</div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                <ul class="stay">
+                    <li class="sub-header sans-narrow">Stay</li>
+                </ul>
             </div>
             <div class="sub-section">
                 <div class="header sans-narrow icon-large bangkok">Bangkok</div>
             </div>
             <div class="sub-section">
-                <div class="sub-header sans-narrow">Explore</div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                <ul class="explore">
+                    <li class="sub-header sans-narrow">Explore</li>
+                </ul>
             </div>
         </div>
     </section>
     <section id="chiang_mai">
         <div class="center-row cover darker">
             <div class="sub-section">
-                <div class="sub-header sans-narrow">Stay</div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                <ul class="stay">
+                    <li class="sub-header sans-narrow">Stay</li>
+                </ul>
             </div>
             <div class="sub-section">
                 <div class="header sans-narrow icon-large chiang-mai">Chiang Mai</div>
             </div>
             <div class="sub-section">
-                <div class="sub-header sans-narrow">Explore</div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                <ul class="explore">
+                    <li class="sub-header sans-narrow">Explore</li>
+                </ul>
             </div>
-        </div>
     </section>
     <section id="krabi">
         <div class="center-row cover darker">
             <div class="sub-section">
-                <div class="sub-header sans-narrow">Stay</div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                <ul class="stay">
+                    <li class="sub-header sans-narrow">Stay</li>
+                </ul>
             </div>
             <div class="sub-section">
                 <div class="header sans-narrow icon-large krabi">Krabi</div>
             </div>
             <div class="sub-section">
-                <div class="sub-header sans-narrow">Explore</div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisi volutpat, dictum purus id, mattis lectus. Duis risus mi, porta ut pellentesque a, accumsan vel sapien. Pellentesque maximus lorem vitae nisl mollis, eget condimentum diam vestibulum. Morbi eleifend gravida augue, quis tincidunt turpis elementum eget. Vestibulum at mi et est semper finibus id eu velit. Aenean nec ornare nunc. Ut eu sodales sapien, vel finibus urna.
+                <ul class="explore">
+                    <li class="sub-header sans-narrow">Explore</li>
+                </ul>
             </div>
         </div>
     </section>

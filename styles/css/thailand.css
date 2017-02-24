@@ -116,9 +116,19 @@ section {
     font-size: 4vh;
 }
 
-.sub-section .sub-header {
+.sub-section li.sub-header {
     color: white;
-    font-size: 2vh;
+    font-size: 3vh;
+}
+
+.sub-section ul {
+    list-style-type: none;
+}
+
+.sub-section li {
+    text-transform: uppercase;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: 700;
 }
 
 .locations {
