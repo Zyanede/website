@@ -116,16 +116,14 @@ section {
     font-size: 4vh;
 }
 
-.sub-section li.sub-header {
+.sub-section .sub-header {
     color: white;
     font-size: 3vh;
 }
 
-.sub-section ul {
+.sub-section .explore,
+.sub-section .stay {
     list-style-type: none;
-}
-
-.sub-section li {
     text-transform: uppercase;
     font-family: 'PT Sans Narrow', sans-serif;
     font-weight: 700;
