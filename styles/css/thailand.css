@@ -121,6 +121,10 @@ section {
     font-size: 3vh;
 }
 
+.list-element {
+    text-transform: none !important;
+}
+
 .sub-section .explore,
 .sub-section .stay {
     list-style-type: none;

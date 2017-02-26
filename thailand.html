@@ -70,32 +70,32 @@
 
                 if (entry['gsx$bangkokstay']['$t'] != "") {
                     tripData.bangkok.stay[idx] = entry['gsx$bangkokstay']['$t'];
-                    bangkokSection.querySelector('.stay').innerHTML += '<li>' + tripData.bangkok.stay[idx] + '<br><br></li>';
+                    bangkokSection.querySelector('.stay').innerHTML += '<li class="list-element">' + tripData.bangkok.stay[idx] + '<br><br></li>';
                 }
 
                 if (entry['gsx$bangkokvisit']['$t'] != "") {
                     tripData.bangkok.visit[idx] = entry['gsx$bangkokvisit']['$t'];
-                    bangkokSection.querySelector('.explore').innerHTML += '<li>' + tripData.bangkok.visit[idx] + '<br><br></li>';
+                    bangkokSection.querySelector('.explore').innerHTML += '<li class="list-element">' + tripData.bangkok.visit[idx] + '<br><br></li>';
                 }
 
                 if (entry['gsx$chiangmaistay']['$t'] != "") {
                     tripData.chiangmai.stay[idx] = entry['gsx$chiangmaistay']['$t'];
-                    chiangmaiSection.querySelector('.stay').innerHTML += '<li>' + tripData.chiangmai.stay[idx] + '<br><br></li>';
+                    chiangmaiSection.querySelector('.stay').innerHTML += '<li class="list-element">' + tripData.chiangmai.stay[idx] + '<br><br></li>';
                 }
 
                 if (entry['gsx$chiangmaivisit']['$t'] != "") {
                     tripData.chiangmai.visit[idx] = entry['gsx$chiangmaivisit']['$t'];
-                    chiangmaiSection.querySelector('.explore').innerHTML += '<li>' + tripData.chiangmai.visit[idx] + '<br><br></li>';
+                    chiangmaiSection.querySelector('.explore').innerHTML += '<li class="list-element">' + tripData.chiangmai.visit[idx] + '<br><br></li>';
                 }
 
                 if (entry['gsx$krabistay']['$t'] != "") {
                     tripData.krabi.stay[idx] = entry['gsx$krabistay']['$t'];
-                    krabiSection.querySelector('.stay').innerHTML += '<li>' + tripData.krabi.stay[idx] + '<br><br></li>';
+                    krabiSection.querySelector('.stay').innerHTML += '<li class="list-element">' + tripData.krabi.stay[idx] + '<br><br></li>';
                 }
 
                 if (entry['gsx$krabivisit']['$t'] != "") {
                     tripData.krabi.visit[idx] = entry['gsx$krabivisit']['$t'];
-                    krabiSection.querySelector('.explore').innerHTML += '<li>' + tripData.krabi.visit[idx] + '<br><br></li>';
+                    krabiSection.querySelector('.explore').innerHTML += '<li class="list-element">' + tripData.krabi.visit[idx] + '<br><br></li>';
                 }
 
             }
