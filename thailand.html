@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/fonts/font.default.css">
     <script>
-    $(function() {
+    window.addEventListener('load', function() {
+
+        var origSize = 15;
         $('#locations a').bind('click', function(event) {
             var $anchor = $(this);
 
@@ -17,11 +19,6 @@
             }, 650, 'easeInOutExpo');
             event.preventDefault();
         });
-    });
-
-    var origSize = 15;
-
-    window.addEventListener('load', function() {
 
         var diffDays = (function() {
             var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
@@ -30,18 +27,28 @@
             return Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / (oneDay)));
         })();
 
-        document.querySelector('.countdown').innerHTML = diffDays + "<br>days";
+        var countHTML = diffDays + "<br>days";
+
+        if (diffDays > -11 && diffDays < 1)
+            countHTML = "<br>now!";
+        else if (diffDays <= -11)
+            countHTML = "<br>past";
+
+        document.querySelector('.countdown').innerHTML = countHTML;
 
         var locations = document.getElementById('locations'),
+            navbar = document.getElementById('navbar'),
             docHeight = document.documentElement.offsetHeight,
             innerHeight = window.innerHeight;
         window.addEventListener('scroll', function() {
             // normalize scroll position as percentage
             var scrolled = window.scrollY / innerHeight,
-                transformValue = (origSize * Math.max(0.6, (1 - scrolled))) + 'vh';
+                // transformValue = (origSize * Math.max(0.6, (1 - scrolled))) + 'vh';
+                transformValue = Math.max(0.6, (1 - scrolled));
 
-            $('.locations .icon').height(transformValue).width(transformValue);
-            // locations.style.transform = transformValue;
+            // $('.locations .icon').height(transformValue).width(transformValue);
+            // $('.locations .icon').css('transform', 'scale(' + transformValue + ')');
+            navbar.style.transform = 'scale(' + transformValue + ')';
         }, false);
 
         // Trip JSON
@@ -99,8 +106,6 @@
                 }
 
             }
-
-            console.log('data:', tripData);
         });
 
     }, false);
@@ -113,9 +118,11 @@
             <a class="fa fa-calendar-o fa-5x timeline" href="#timeline">
                 <div class="countdown"></div>
             </a>
-            <a class="icon bangkok" href="#bangkok"></a>
-            <a class="icon chiang-mai" href="#chiang_mai"></a>
-            <a class="icon krabi" href="#krabi"></a>
+            <div id="navbar" class="locations sans-narrow nav-bar">
+                <a class="icon bangkok" href="#bangkok"></a>
+                <a class="icon chiang-mai" href="#chiang_mai"></a>
+                <a class="icon krabi" href="#krabi"></a>
+            </div>
         </div>
         <div class="header sans-narrow center-column dark">
             Thailand
