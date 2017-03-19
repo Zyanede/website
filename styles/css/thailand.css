@@ -62,7 +62,7 @@ section {
 }
 
 .top {
-    background: url("https://www.savannahstate.edu/academic-affairs/images/thailand_pic.jpg") no-repeat;
+    background: url("../../assets/images/thailand_top.jpg") no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -208,13 +208,13 @@ section {
 }
 
 .bangkok {
-    background-image: url("https://pix6.agoda.net/city/9395/9395-7x3.jpg");
+    background-image: url("../../assets/images/bangkok.jpg");
     background-position: left;
     background-size: cover;
 }
 
 #bangkok {
-    background-image: url("http://drwallpaper.com/wp-content/uploads/2016/01/thailand_bangkok_wallpaper_hd_facebook_cover5.jpg");
+    background-image: url("../../assets/images/bangkok_bg.jpg");
     background-size: cover;
 }
 
@@ -223,13 +223,13 @@ section {
 }
 
 .chiang-mai {
-    background-image: url("http://www.unitefl.com/wp-content/uploads/2014/06/chiang-mai-31.jpg");
+    background-image: url("../../assets/images/chiang_mai.jpg");
     background-position: left;
     background-size: cover;
 }
 
 #chiang_mai {
-    background-image: url("https://lonelyplanetimages.imgix.net/a/g/hi/t/cb3db4b94cdc8a8fff74e2fac7cd6cb8-chiang-mai.jpg");
+    background-image: url("../../assets/images/chiang_mai_bg.jpg");
     background-size: cover;
 }
 
@@ -238,13 +238,13 @@ section {
 }
 
 .krabi {
-    background-image: url("https://homeiswhereyourbagis.com/wp-content/uploads/2016/03/Krabi-Island-Hopping-Koh-Poda.jpg");
+    background-image: url("../../assets/images/krabi.jpg");
     background-position: center;
     background-size: cover;
 }
 
 #krabi {
-    background-image: url("http://airporter.co.uk/wp-content/uploads/2015/01/ao-nang.jpg");
+    background-image: url("../../assets/images/krabi_bg.jpg");
     background-size: cover;
 }
 
