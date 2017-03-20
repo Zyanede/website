@@ -64,19 +64,25 @@ section {
 .header.icon-large {
     line-height: 20vw;
     height: 0;
+    visibility: hidden;
 }
 
 @media (min-width: 800px) {
     .header.icon-large {
         line-height: 20vw;
         height: 29vw;
+        width: 29vw;
     }
 }
 
 .sub-section {
     display: table-row;
     vertical-align: middle;
-    padding: 2vw;
+}
+
+.sub-section.header {
+    display: none;
+    height: 0;
 }
 
 @media (min-width: 800px) {
@@ -85,6 +91,10 @@ section {
         width: 33%;
         vertical-align: middle;
         padding: 2vw;
+    }
+    .sub-section.header {
+        display: table-row;
+        height: auto;
     }
 }
 
@@ -330,6 +340,11 @@ a.timeline .countdown {
 a {
     color: white;
     text-decoration: none;
+}
+
+ul {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
 }
 
 html {
