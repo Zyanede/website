@@ -64,7 +64,6 @@ section {
 .header.icon-large {
     line-height: 20vw;
     height: 0;
-    visibility: hidden;
 }
 
 @media (min-width: 800px) {
@@ -76,6 +75,7 @@ section {
 }
 
 .sub-section {
+    height: 50%;
     display: table-row;
     vertical-align: middle;
 }
@@ -88,12 +88,13 @@ section {
 @media (min-width: 800px) {
     .sub-section {
         display: table-cell;
+        height: auto;
         width: 33%;
         vertical-align: middle;
         padding: 2vw;
     }
     .sub-section.header {
-        display: table-row;
+        display: table-cell;
         height: auto;
     }
 }
