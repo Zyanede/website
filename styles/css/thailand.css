@@ -64,8 +64,12 @@ section {
 .header.icon-large {
     line-height: 20vw;
     height: 0;
-    @media (min-width: 600px) {
+}
+
+@media (min-width: 800px) {
+    .header.icon-large {
         line-height: 20vw;
+        height: 29vw;
     }
 }
 
@@ -73,7 +77,10 @@ section {
     display: table-row;
     vertical-align: middle;
     padding: 2vw;
-    @media (min-width: 600px) {
+}
+
+@media (min-width: 800px) {
+    .sub-section {
         display: table-cell;
         width: 33%;
         vertical-align: middle;
