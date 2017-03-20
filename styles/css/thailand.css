@@ -61,29 +61,19 @@ section {
     font-family: 'PT Serif', serif;
 }
 
-@media only screen and (max-width: 480px) {
-    .header.icon-large {
-        line-height: 20vw;
-        height: 0;
-    }
-}
-
-@media only screen and (min-width: 481px) {
-    .header.icon-large {
+.header.icon-large {
+    line-height: 20vw;
+    height: 0;
+    @media (min-width: 600px) {
         line-height: 20vw;
     }
 }
 
-@media only screen and (max-width: 480px) {
-    .sub-section {
-        display: table-row;
-        vertical-align: middle;
-        padding: 2vw;
-    }
-}
-
-@media only screen and (min-width: 481px) {
-    .sub-section {
+.sub-section {
+    display: table-row;
+    vertical-align: middle;
+    padding: 2vw;
+    @media (min-width: 600px) {
         display: table-cell;
         width: 33%;
         vertical-align: middle;
